@@ -327,6 +327,37 @@
             .member-list, .gallery {
                 grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
             }
+            /* Lightbox Styling */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-img {
+    max-width: 90%;
+    max-height: 90%;
+    border: 5px solid #d4af37;
+    border-radius: 10px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: #d4af37;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
         }
     </style>
 </head>
@@ -462,26 +493,32 @@
                     </div>
                 </div>
             </section>
-            
-            <section id="gallery">
-                <h2>Gallery</h2>
-                <p>Moments captured from our adventures in the Empire.</p>
-                
-                <div class="gallery">
-                    <div class="gallery-item">
-                        <img src="camp.png" alt="Yeoman's End Tavern">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="Gambling.png" alt="Gambling Night">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="house.png" alt="House Meeting">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="gala.png" alt="Trading Session">
-                    </div>
-                </div>
-            </section>
+
+<section id="gallery">
+    <h2>Gallery</h2>
+    <p>Moments captured from our adventures in the Empire.</p>
+
+    <div class="gallery">
+        <a href="camp.png" class="gallery-item" onclick="openLightbox(event, 'camp.png')">
+            <img src="camp.png" alt="Yeoman's End Tavern">
+        </a>
+        <a href="Gambling.png" class="gallery-item" onclick="openLightbox(event, 'Gambling.png')">
+            <img src="Gambling.png" alt="Gambling Night">
+        </a>
+        <a href="house.png" class="gallery-item" onclick="openLightbox(event, 'house.png')">
+            <img src="house.png" alt="House Meeting">
+        </a>
+        <a href="gala.png" class="gallery-item" onclick="openLightbox(event, 'gala.png')">
+            <img src="gala.png" alt="Trading Session">
+        </a>
+    </div>
+</section>
+
+<!-- Lightbox Modal -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close-btn">&times;</span>
+    <img id="lightbox-img" class="lightbox-img">
+</div>
 
                <section id="history">
                 <h2>Our History</h2>
@@ -603,5 +640,16 @@
     </footer>
     
     <a href="#" class="back-to-top">↑</a>
+    <script>
+function openLightbox(event, src) {
+    event.preventDefault(); // Prevent default anchor behavior
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').style.display = 'flex';
+}
+
+function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+}
+</script>
 </body>
 </html>
