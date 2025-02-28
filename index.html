@@ -323,7 +323,7 @@
             .member-list, .gallery {
                 grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
             }
-            /* Lightbox Styling */
+/* Lightbox Styling */
 .lightbox {
     display: none;
     position: fixed;
@@ -335,24 +335,33 @@
     background-color: rgba(0, 0, 0, 0.8);
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .lightbox-img {
     max-width: 90%;
-    max-height: 90%;
+    max-height: 90vh;
     border: 5px solid #d4af37;
     border-radius: 10px;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.7);
 }
 
+/* Close Button */
 .close-btn {
     position: absolute;
-    top: 20px;
-    right: 40px;
+    top: 15px;
+    right: 30px;
     color: #d4af37;
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
+    transition: color 0.3s ease;
 }
+
+.close-btn:hover {
+    color: white;
+}
+
 
         }
     </style>
@@ -634,15 +643,28 @@
     
     <a href="#" class="back-to-top">↑</a>
     <script>
+<script>
 function openLightbox(event, src) {
-    event.preventDefault(); // Prevent default anchor behavior
-    document.getElementById('lightbox-img').src = src;
-    document.getElementById('lightbox').style.display = 'flex';
+    event.preventDefault();
+    
+    let lightbox = document.getElementById('lightbox');
+    let lightboxImg = document.getElementById('lightbox-img');
+    
+    lightbox.style.display = 'flex';
+    lightboxImg.src = src;
+    
+    // Prevent body from scrolling while lightbox is open
+    document.body.style.overflow = 'hidden';
 }
 
 function closeLightbox() {
     document.getElementById('lightbox').style.display = 'none';
+    
+    // Restore scrolling
+    document.body.style.overflow = 'auto';
 }
+</script>
+
 </script>
 </body>
 </html>
