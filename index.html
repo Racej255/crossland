@@ -112,6 +112,10 @@
             flex-direction: column;
             gap: 20px;
         }
+            aside2 {
+        order: -1; /* This makes the aside appear before the content */
+        margin-bottom: 20px;
+    }
         .sidebar-box {
             background: rgba(46, 77, 14, 0.1);
             border: 3px solid #2e4d0e;
@@ -548,7 +552,7 @@
             </section>
         </div>
         
-        <aside>
+        <aside2>
             <div class="sidebar-box">
                 <h3>Upcoming Events</h3>
                 <div class="event-date">E2 - May 24-27, 2025</div>
@@ -566,7 +570,9 @@
                     <a href="gala.html">Learn More</a>
                 </div>
             </div>
-            
+        </aside2>
+        
+        <aside>
             <div class="sidebar-box">
                 <h3>New to Anvil?</h3>
                 <p>First time at Empire LRP? Here's what you need to know:</p>
