@@ -150,6 +150,8 @@
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: 15px;
       margin-top: 15px;
+      /* Key line to prevent images from stretching: */
+      align-items: start;
     }
     .gallery-item {
       border: 3px solid #d4af37;
@@ -426,12 +428,12 @@
     <section class="signup">
       <h2>Sign Up</h2>
       <p>Reserve your spot now! Click the button below to sign up for the Grand Crossland Gala.</p>
-      <p><a href="#">Sign Up Here</a></p>
+      <p><a href="https://forms.gle/jDNQhZpQAwkT7Coz8">Sign Up Here</a></p>
     </section>
   </div>
   
   <!-- Floating Sign Up Button -->
-  <a href="#" class="floating-signup">Sign Up Now</a>
+  <a href="https://forms.gle/jDNQhZpQAwkT7Coz8" class="floating-signup">Sign Up Now</a>
   
   <!-- Gallery Lightbox Modal -->
   <div id="lightbox" class="lightbox" onclick="closeLightbox()">
