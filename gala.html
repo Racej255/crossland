@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Grand Crossland Gala - House Crossland</title>
   <style>
     /* Base styling */
@@ -144,22 +144,14 @@
       list-style-type: disc;
       padding-left: 20px;
     }
-    /* Gallery styling: horizontal layout */
-    .gallery {
-      display: flex;
+    /* Gallery styling: grid layout */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: 15px;
-      overflow-x: auto;
-      padding-bottom: 10px;
-    }
-    .gallery::-webkit-scrollbar {
-      height: 8px;
-    }
-    .gallery::-webkit-scrollbar-thumb {
-      background: #d4af37;
-      border-radius: 4px;
+      margin-top: 15px;
     }
     .gallery-item {
-      flex: 0 0 auto;
       border: 3px solid #d4af37;
       border-radius: 5px;
       overflow: hidden;
@@ -167,8 +159,8 @@
     }
     .gallery-item img {
       display: block;
-      max-height: 150px;
-      width: auto;
+      width: 100%;
+      height: auto;
     }
     /* Full Gallery Button styling */
     .full-gallery-btn {
@@ -294,7 +286,7 @@
 <body>
   <header>
     <div class="header-left">
-      <img src="House_emblem.png" alt="House Crossland Emblem" class="logo">
+      <img src="House_emblem.png" alt="House Crossland Emblem" class="logo" />
       <div>
         <h1>Grand Crossland Gala</h1>
         <p>Join us to celebrate Marcus Crossland's birthday, at his annual gala. A celebration not to be missed!</p>
@@ -315,10 +307,10 @@
       </div>
       <p><strong>Date:</strong> 17th January 2026</p>
       <p><strong>Time:</strong> 5:00pm - 11:30pm</p>
-    <p>
-  <strong>Location:</strong> The Priest's House, Barden, Ilkley, West Yorkshire, LS29 9EG – Once a setting for noble feasts, this historic hall now opens its doors for our grandest celebration yet.
-  <a href="https://thepriestshouse.com/medieval-banquets/" target="_blank">Learn more about the venue</a>.
-</p>
+      <p>
+        <strong>Location:</strong> The Priest's House – Once a setting for noble feasts, this historic hall now opens its doors for our grandest celebration yet.
+        <a href="https://thepriestshouse.com/medieval-banquets/" target="_blank">Learn more about the venue</a>.
+      </p>
     </section>
     
     <section class="schedule">
@@ -381,49 +373,49 @@
     <section class="testimonials">
       <h2>Testimonials</h2>
       <blockquote>
-        "I have long admired Marcus Crossland – his charm is as enduring as the mulled wine served at these feasts."  
+        "I have long admired Marcus Crossland – his charm is as enduring as the mulled wine served at these feasts."
         <cite>— Maud of Buckley</cite>
       </blockquote>
       <blockquote>
-        "The splendor of the Marches was truly on display; candles have never burned so magnificently!"  
+        "The splendor of the Marches was truly on display; candles have never burned so magnificently!"
         <cite>— Halvind Brinegold</cite>
       </blockquote>
       <blockquote>
-        "I’m quite impressed that not a drop of water marred the floor. Now that’s a miracle!"  
+        "I’m quite impressed that not a drop of water marred the floor. Now that’s a miracle!"
         <cite>— Boggy Bill</cite>
       </blockquote>
       <blockquote>
-        "If only Dawn were this cool; this gala is a spectacle beyond compare."  
+        "If only Dawn were this cool; this gala is a spectacle beyond compare."
         <cite>— Lord Gilderai De Rondell</cite>
       </blockquote>
     </section>
     
     <section class="gallery">
       <h2>Gallery of Previous Events</h2>
-      <div class="gallery-grid" style="display: flex; gap: 15px; overflow-x: auto; padding-bottom: 10px;">
+      <div class="gallery-grid">
         <div class="gallery-item" onclick="openLightbox(event, 'gallery/gala01.png')">
-          <img src="gallery/gala01.png" alt="Gala Image 1">
+          <img src="gallery/gala01.png" alt="Gala Image 1" />
         </div>
         <div class="gallery-item" onclick="openLightbox(event, 'gallery/gala02.png')">
-          <img src="gallery/gala02.png" alt="Gala Image 2">
+          <img src="gallery/gala02.png" alt="Gala Image 2" />
         </div>
         <div class="gallery-item" onclick="openLightbox(event, 'gallery/gala03.png')">
-          <img src="gallery/gala03.png" alt="Gala Image 3">
+          <img src="gallery/gala03.png" alt="Gala Image 3" />
         </div>
         <div class="gallery-item" onclick="openLightbox(event, 'gallery/gala04.png')">
-          <img src="gallery/gala04.png" alt="Gala Image 4">
+          <img src="gallery/gala04.png" alt="Gala Image 4" />
         </div>
         <div class="gallery-item" onclick="openLightbox(event, 'gallery/gala05.png')">
-          <img src="gallery/gala05.png" alt="Gala Image 5">
+          <img src="gallery/gala05.png" alt="Gala Image 5" />
         </div>
         <div class="gallery-item" onclick="openLightbox(event, 'gallery/gala06.png')">
-          <img src="gallery/gala06.png" alt="Gala Image 6">
+          <img src="gallery/gala06.png" alt="Gala Image 6" />
         </div>
         <div class="gallery-item" onclick="openLightbox(event, 'gallery/gala07.png')">
-          <img src="gallery/gala07.png" alt="Gala Image 7">
+          <img src="gallery/gala07.png" alt="Gala Image 7" />
         </div>
         <div class="gallery-item" onclick="openLightbox(event, 'gallery/gala08.png')">
-          <img src="gallery/gala08.png" alt="Gala Image 8">
+          <img src="gallery/gala08.png" alt="Gala Image 8" />
         </div>
       </div>
       <p style="text-align: center; margin-top: 15px;">
@@ -444,7 +436,7 @@
   <!-- Gallery Lightbox Modal -->
   <div id="lightbox" class="lightbox" onclick="closeLightbox()">
     <span class="close-btn">&times;</span>
-    <img id="lightbox-img" class="lightbox-img" alt="Expanded view">
+    <img id="lightbox-img" class="lightbox-img" alt="Expanded view" />
     <button class="prev-btn" onclick="prevGalleryImage(event)">←</button>
     <button class="next-btn" onclick="nextGalleryImage(event)">→</button>
   </div>
@@ -452,13 +444,13 @@
   <script>
     // Gallery lightbox functionality
     var galleryImages = [
-      "gallery/gala01.png", 
-      "gallery/gala02.png", 
-      "gallery/gala03.png", 
-      "gallery/gala04.png", 
-      "gallery/gala05.png", 
-      "gallery/gala06.png", 
-      "gallery/gala07.png", 
+      "gallery/gala01.png",
+      "gallery/gala02.png",
+      "gallery/gala03.png",
+      "gallery/gala04.png",
+      "gallery/gala05.png",
+      "gallery/gala06.png",
+      "gallery/gala07.png",
       "gallery/gala08.png"
     ];
     var currentGalleryIndex = 0;
@@ -486,7 +478,8 @@
     
     function prevGalleryImage(event) {
       event.stopPropagation();
-      currentGalleryIndex = (currentGalleryIndex - 1 + galleryImages.length) % galleryImages.length;
+      currentGalleryIndex =
+        (currentGalleryIndex - 1 + galleryImages.length) % galleryImages.length;
       document.getElementById('lightbox-img').src = galleryImages[currentGalleryIndex];
     }
     
