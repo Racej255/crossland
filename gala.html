@@ -283,6 +283,19 @@
     .prev-btn {
       left: 30px;
     }
+
+    /* MEDIA QUERY to fix nav overlap on mobile */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        padding-bottom: 60px; /* Extra bottom padding if needed */
+      }
+      header nav {
+        position: static;
+        transform: none;
+        margin-top: 10px;
+      }
+    }
   </style>
 </head>
 <body>
