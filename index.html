@@ -231,29 +231,23 @@
       height: 100%;
       object-fit: cover;
     }
-    .soup-recipe {
-      background: rgba(58, 47, 11, 0.05);
-      border: 2px dashed #d4af37;
-      border-radius: 8px;
-      padding: 15px;
-      margin: 20px 0;
-      text-align: left;
-      display: none;
+    /* Styling for the history toggle button */
+    .history-toggle {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #2e4d0e;
+      color: #d4af37;
+      border: 2px solid #d4af37;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-top: 10px;
     }
-    .soup-recipe h4 {
+    .history-toggle:hover {
+      background: #d4af37;
       color: #2e4d0e;
-      margin-top: 0;
     }
-    .soup-recipe ul {
-      padding-left: 20px;
-    }
-    .soup-recipe li {
-      margin-bottom: 5px;
-    }
-    /* Hidden elements */
-    .history-content {
-      display: none;
-    }
+    /* Hidden elements and triggers */
     .hidden-soup-trigger {
       position: absolute;
       width: 30px;
@@ -267,6 +261,9 @@
     }
     .hidden-soup-trigger:hover {
       opacity: 0.3;
+    }
+    .history-content {
+      display: none;
     }
     footer {
       background: #2e4d0e;
@@ -335,7 +332,7 @@
       transform: translateY(-2px);
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
-    /* Lightbox Styling */
+    /* Lightbox Styling for Gallery and Soup Modal */
     .lightbox {
       display: none;
       position: fixed;
@@ -369,6 +366,28 @@
     .close-btn:hover {
       color: white;
     }
+    /* Next and Previous buttons for gallery */
+    .next-btn, .prev-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      font-size: 40px;
+      color: #d4af37;
+      cursor: pointer;
+      z-index: 1001;
+      transition: color 0.3s ease;
+    }
+    .next-btn:hover, .prev-btn:hover {
+      color: white;
+    }
+    .next-btn {
+      right: 30px;
+    }
+    .prev-btn {
+      left: 30px;
+    }
     @media (max-width: 768px) {
       .anchor-links {
         flex-wrap: wrap;
@@ -391,6 +410,10 @@
       }
       .member-list, .gallery {
         grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      }
+      /* Hide the aside upcoming events on mobile */
+      aside .upcoming-events {
+        display: none;
       }
     }
   </style>
@@ -432,19 +455,8 @@
         <p>What we truly do, and how we operate, is something best discovered in person. Come find us in the Marches, and perhaps we can come to an understanding.</p>
         <h3>Out-of-Game</h3>
         <p>We're a friendly and welcoming group at Empire LRP, always happy to help new players find their footing. Whether you need guidance on the game, connections to get involved, or just a place to hang out, House Crossland is here to support you.</p>
-        <!-- Hidden soup trigger button -->
-        <button class="hidden-soup-trigger" title="There's nothing to see here..." onclick="toggleSoupRecipe()">🍲</button>
-        <!-- Hidden soup recipe -->
-        <div id="secretSoupRecipe" class="soup-recipe">
-          <h4>Crossland's Fortune Soup</h4>
-          <p>A hearty Marcher recipe, perfect for cold nights in Anvil.</p>
-          <ul>
-            <li>Root vegetables from Marcher soil</li>
-            <li>Herbs grown under Marcher skies</li>
-            <li>A splash of Marcher ale</li>
-            <li>And a secret ingredient we'll never reveal...</li>
-          </ul>
-        </div>
+        <!-- Hidden soup trigger button now opens the soup lightbox -->
+        <button class="hidden-soup-trigger" title="There's nothing to see here..." onclick="openSoupModal()">🍲</button>
       </section>
       
       <section id="members">
@@ -540,6 +552,48 @@
             </div>
           </div>
         </div>
+        <!-- Secondary heading and former members -->
+        <h3>Crossland's we've loved and lost</h3>
+        <div class="member-list">
+          <div class="member-card" onclick="openLightbox(event, 'daz.png')">
+            <img src="daz.png" alt="Daz Rock">
+            <div class="member-info">
+              <h4>Daz Rock</h4>
+              <p>Rest in Peace</p>
+            </div>
+          </div>
+          <div class="member-card" onclick="openLightbox(event, 'Mason.png')">
+            <img src="mason.png" alt="Mason Manchester">
+            <div class="member-info">
+              <h4>Mason Manchester</h4>
+              <p>Founding Member</p>
+              <p>Returned to his Farm</p>
+            </div>
+          </div>
+          <div class="member-card" onclick="openLightbox(event, 'broadwick.png')">
+            <img src="broadwick.png" alt="Robert Broadwick">
+            <div class="member-info">
+              <h4>Robert Broadwick</h4>
+              <p>Founding Member</p>
+              <p>Rest in Peace</p>
+            </div>
+          </div>
+          <div class="member-card" onclick="openLightbox(event, 'Anthony.png')">
+            <img src="Anthony.png" alt="Anthony Bikker">
+            <div class="member-info">
+              <h4>Anthony Bikker</h4>
+              <p>Founding Member</p>
+              <p>Lost in the woods</p>
+            </div>
+        </div>
+          <div class="member-card" onclick="openLightbox(event, 'harvest.png')">
+            <img src="harvest.png" alt="Brother Harvest">
+            <div class="member-info">
+              <h4>Brother Harvest</h4>
+              <p>Rest in Peace</p>
+            </div>
+          </div>
+        </div>
       </section>
       
       <section id="gallery">
@@ -566,6 +620,7 @@
         <div class="quote">
           "A name of convenience, not bloodline—a banner taken up by those who had none." — Tales of the Marches
         </div>
+        <!-- Styled as a clickable button -->
         <div class="history-toggle" onclick="toggleHistory()">Read Our Full History</div>
         <div class="history-content" id="historyContent">
           <h3>The Rise of House Crossland</h3>
@@ -604,6 +659,7 @@
     </div>
     
     <aside>
+      <!-- Aside upcoming events will be hidden on mobile -->
       <div class="sidebar-box upcoming-events">
         <h3>Upcoming Events</h3>
         <div class="event-date">E2 - May 24-27, 2025</div>
@@ -648,28 +704,86 @@
   
   <a href="#" class="back-to-top">↑</a>
   
-  <!-- Lightbox Modal -->
+  <!-- Gallery Lightbox Modal -->
   <div id="lightbox" class="lightbox" onclick="closeLightbox()">
     <span class="close-btn">&times;</span>
     <img id="lightbox-img" class="lightbox-img" alt="Expanded view">
+    <!-- Previous and Next arrow buttons -->
+    <button class="prev-btn" onclick="prevGalleryImage(event)">←</button>
+    <button class="next-btn" onclick="nextGalleryImage(event)">→</button>
+  </div>
+  
+  <!-- Soup Recipe Lightbox Modal -->
+  <div id="soupModal" class="lightbox" onclick="closeSoupModal()">
+    <span class="close-btn" onclick="closeSoupModal(event)">&times;</span>
+    <div style="background: #fff; padding: 20px; border: 5px solid #d4af37; border-radius: 10px; max-width: 90%; text-align: left;">
+      <h4>Crossland's Soup Time</h4>
+      <p>A hearty and warming broth perfect for a chilly evening in the Marches.</p>
+      <h5>Ingredients:</h5>
+      <ul>
+        <li>1 cup pearl barley</li>
+        <li>2 carrots, peeled and diced</li>
+        <li>2 parsnips, peeled and diced</li>
+        <li>1 large turnip, peeled and diced</li>
+        <li>1 medium onion, chopped</li>
+        <li>2 cloves garlic, minced</li>
+        <li>1 cup celery, diced</li>
+        <li>1 cup chopped kale</li>
+        <li>1 can (15 oz) chickpeas, drained and rinsed</li>
+        <li>6 cups vegetable broth</li>
+        <li>1 bay leaf</li>
+        <li>1 teaspoon dried thyme</li>
+        <li>1 tablespoon tomato paste</li>
+        <li>2 tablespoons olive oil</li>
+        <li>Salt and pepper to taste</li>
+      </ul>
+      <h5>Instructions:</h5>
+      <ol>
+        <li>Heat the olive oil in a large pot over medium heat. Add the chopped onion and garlic; sauté until soft (about 3-4 minutes).</li>
+        <li>Add the diced carrots, parsnips, turnip, and celery. Cook for 5 minutes, stirring occasionally.</li>
+        <li>Stir in the tomato paste and cook for another minute to unlock its flavor.</li>
+        <li>Add the pearl barley, chickpeas, vegetable broth, bay leaf, and thyme. Bring the mixture to a simmer.</li>
+        <li>Reduce heat and let simmer gently for 45 minutes, or until the barley is tender.</li>
+        <li>Add the chopped kale and simmer for an additional 5-10 minutes until the greens have wilted.</li>
+        <li>Season with salt and pepper to taste, remove the bay leaf, and serve hot.</li>
+      </ol>
+    </div>
   </div>
   
   <script>
+    // Gallery functionality
+    var galleryImages = ["camp.png", "Gambling.png", "house.png", "gala.png"];
+    var currentGalleryIndex = 0;
+    
     function openLightbox(event, src) {
-      event.preventDefault();
+      event.stopPropagation();
       var lightbox = document.getElementById('lightbox');
       var lightboxImg = document.getElementById('lightbox-img');
-      lightbox.style.display = 'flex';
+      // Find the index of the clicked image
+      currentGalleryIndex = galleryImages.indexOf(src);
       lightboxImg.src = src;
+      lightbox.style.display = 'flex';
       document.body.style.overflow = 'hidden';
     }
     
     function closeLightbox() {
-      var lightbox = document.getElementById('lightbox');
-      lightbox.style.display = 'none';
+      document.getElementById('lightbox').style.display = 'none';
       document.body.style.overflow = 'auto';
     }
     
+    function nextGalleryImage(event) {
+      event.stopPropagation();
+      currentGalleryIndex = (currentGalleryIndex + 1) % galleryImages.length;
+      document.getElementById('lightbox-img').src = galleryImages[currentGalleryIndex];
+    }
+    
+    function prevGalleryImage(event) {
+      event.stopPropagation();
+      currentGalleryIndex = (currentGalleryIndex - 1 + galleryImages.length) % galleryImages.length;
+      document.getElementById('lightbox-img').src = galleryImages[currentGalleryIndex];
+    }
+    
+    // History toggle functionality
     function toggleHistory() {
       var historyContent = document.getElementById('historyContent');
       if (historyContent.style.display === 'none' || historyContent.style.display === '') {
@@ -679,19 +793,33 @@
       }
     }
     
-    function toggleSoupRecipe() {
-      var soupRecipe = document.getElementById('secretSoupRecipe');
-      if (soupRecipe.style.display === 'none' || soupRecipe.style.display === '') {
-        soupRecipe.style.display = 'block';
-      } else {
-        soupRecipe.style.display = 'none';
+    // Soup modal functionality
+    function openSoupModal() {
+      var soupModal = document.getElementById('soupModal');
+      soupModal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeSoupModal(event) {
+      if (event) {
+        event.stopPropagation();
       }
+      var soupModal = document.getElementById('soupModal');
+      soupModal.style.display = 'none';
+      document.body.style.overflow = 'auto';
     }
     
     // Smooth scroll for back-to-top button
     document.querySelector('.back-to-top').addEventListener('click', function(e) {
       e.preventDefault();
       window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+    
+    // Prevent modal clicks from closing the modal when clicking inside the content
+    document.getElementById('soupModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeSoupModal();
+      }
     });
   </script>
 </body>
