@@ -371,6 +371,11 @@
     .close-btn:hover {
       color: white;
     }
+    #soupModal > div {
+  max-height: 90vh; /* Limits the content to 90% of the viewport height */
+  overflow-y: auto; /* Adds a scrollbar if the content is taller than 90% of the viewport */
+  margin: 20px auto; /* Optional: adds vertical spacing */
+}
     /* Next and Previous buttons for gallery */
     .next-btn, .prev-btn {
       position: absolute;
