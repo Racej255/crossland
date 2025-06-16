@@ -3,7 +3,7 @@
 # Replace YOUR_USERNAME/YOUR_REPOSITORY_NAME with your actual repo path.
 backend:
   name: github
-  repo: YOUR_USERNAME/YOUR_REPOSITORY_NAME
+  repo: Racej255/crossland
   branch: main # Or master, depending on your repository's default branch
 
 # media_folder: Where to upload and store images and other media files.
