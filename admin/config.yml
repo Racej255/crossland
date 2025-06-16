@@ -3,7 +3,7 @@
 # Replace YOUR_USERNAME/YOUR_REPOSITORY_NAME with your actual repo path.
 backend:
   name: github
-  repo: Racej255/crossland
+  repo: racej255/crossland
   branch: main # Or master, depending on your repository's default branch
 
 # media_folder: Where to upload and store images and other media files.
@@ -25,29 +25,30 @@ collections:
           - { label: "Page Subtitle", name: "subtitle", widget: "string" }
           - { label: "Main Quote", name: "quote", widget: "text" }
           - { label: "Quote Author", name: "quote_author", widget: "string" }
-          - label: "Upcoming Events (Sidebar)"
-            name: "events"
-            widget: "list"
-            fields:
-              - { label: "Event Date", name: "date", widget: "string" }
-              - { label: "Description", name: "description", widget: "text" }
-          - label: "House Members"
-            name: "members"
-            widget: "list"
-            fields:
-              - { label: "Name", name: "name", widget: "string" }
-              - { label: "Portrait Image", name: "image", widget: "image" }
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Role", name: "role", widget: "string" }
-          - label: "Past Members"
-            name: "past_members"
-            widget: "list"
-            fields:
-              - { label: "Name", name: "name", widget: "string" }
-              - { label: "Portrait Image", name: "image", widget: "image" }
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Status", name: "status", widget: "string" }
           - { label: "Full History", name: "history", widget: "markdown" }
+          # --- Temporarily disabled complex fields for debugging ---
+          # - label: "Upcoming Events (Sidebar)"
+          #   name: "events"
+          #   widget: "list"
+          #   fields:
+          #     - { label: "Event Date", name: "date", widget: "string" }
+          #     - { label: "Description", name: "description", widget: "text" }
+          # - label: "House Members"
+          #   name: "members"
+          #   widget: "list"
+          #   fields:
+          #     - { label: "Name", name: "name", widget: "string" }
+          #     - { label: "Portrait Image", name: "image", widget: "image" }
+          #     - { label: "Title", name: "title", widget: "string" }
+          #     - { label: "Role", name: "role", widget: "string" }
+          # - label: "Past Members"
+          #   name: "past_members"
+          #   widget: "list"
+          #   fields:
+          #     - { label: "Name", name: "name", widget: "string" }
+          #     - { label: "Portrait Image", name: "image", widget: "image" }
+          #     - { label: "Title", name: "title", widget: "string" }
+          #     - { label: "Status", name: "status", widget: "string" }
 
       - name: "gala"
         label: "Gala Page"
