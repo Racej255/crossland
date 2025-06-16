@@ -3,7 +3,7 @@
 # Replace YOUR_USERNAME/YOUR_REPOSITORY_NAME with your actual repo path.
 backend:
   name: github
-  repo: Racej255/crossland
+  repo: YOUR_USERNAME/YOUR_REPOSITORY_NAME
   branch: main # Or master, depending on your repository's default branch
 
 # media_folder: Where to upload and store images and other media files.
@@ -69,11 +69,9 @@ collections:
           - label: "Standard Menu"
             name: "standard_menu"
             widget: "list"
-            field: { label: "Menu Item", name: "item", widget: "string" }
           - label: "Vegetarian Menu"
             name: "vegetarian_menu"
             widget: "list"
-            field: { label: "Menu Item", name: "item", widget: "string" }
           - { label: "Costs & Payment Info", name: "payment_info", widget: "markdown" }
           - label: "Testimonials"
             name: "testimonials"
@@ -85,4 +83,5 @@ collections:
             name: "gallery"
             widget: "list"
             summary: "{{fields.image}}"
-            field: { label: "Image", name: "image", widget: "image"}
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
