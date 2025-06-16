@@ -5,6 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Content Manager</title>
+  </head>
+  <body>
+    <!-- Load Decap CMS and point to config.yml -->
+    <script
+      src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"
+      id="nc-script"
+      data-config-path="config.yml"
+    ></script>
+    <script>
+      // Initialize CMS after loading
+      window.addEventListener('DOMContentLoaded', function() {
+        CMS.init();
+      });
+    </script>
+  </body>
+</html>
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Manager</title>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   </head>
   <body>
