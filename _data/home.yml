@@ -1,0 +1,37 @@
+title: House Crossland
+subtitle: Purveyors of The Yeoman's End - Gambling, Favors, and Fun in the Marches
+quote: A handshake can be worth more than gold... if you know whose hand to shake.
+quote_author: Marcus Crossland
+events:
+  - date: E2 - May 24-27, 2025
+    description: Join us for the opening of the new gambling and drinking season!
+  - date: E3 - August 23-26, 2025
+    description: Summer games and festivities at The Yeoman's End
+  - date: E4 - October 4-7, 2025
+    description: Wassail Festival and year-end celebrations
+members:
+  - name: Marcus Crossland
+    image: /portraits/Marcus.png
+    title: House Steward
+    role: Master of Opportunity
+  - name: Bron Ashwood
+    image: /portraits/bron.png
+    title: Chief Negotiator
+    role: Purveyor of Games
+  - name: Elias Reede
+    image: /portraits/elias.png
+    title: Master of Cudgels
+    role: Curator of Brawn
+past_members:
+  - name: Mason Manchester
+    image: /portraits/mason.png
+    title: Founding Member
+    status: Returned to his Farm
+history: >
+  ### The Rise of House Crossland
+
+
+  The name Crossland was not always known in the Marches. In truth, it's a name
+  of convenience, not bloodline—a banner taken up by those who had none. It was
+  whispered into being by a collection of strays, traders, and opportunists who
+  saw strength in numbers and prosperity in unity.
