@@ -36,11 +36,11 @@ testimonials:
   - quote: The splendor of the Marches was truly on display; candles have never burned so magnificently!
     author: Halvind Brinegold
 gallery:
-  - /gallery/gala01.png
-  - /gallery/gala02.png
-  - /gallery/gala03.png
-  - /gallery/gala04.png
-  - /gallery/gala05.png
-  - /gallery/gala06.png
-  - /gallery/gala07.png
-  - /gallery/gala08.png
+  - image: /gallery/gala01.png
+  - image: /gallery/gala02.png
+  - image: /gallery/gala03.png
+  - image: /gallery/gala04.png
+  - image: /gallery/gala05.png
+  - image: /gallery/gala06.png
+  - image: /gallery/gala07.png
+  - image: /gallery/gala08.png
