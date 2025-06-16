@@ -1,0 +1,48 @@
+title: Grand Crossland Gala
+subtitle: Join us to celebrate Marcus Crossland's birthday, at his annual gala. A celebration not to be missed!
+introduction: |
+  🕯 A Grand Feast, A Night of Merriment, A Celebration Like No Other… 🕯
+
+  Step into a world of grandeur as House Crossland welcomes you to the Grand Crossland Gala. Set within the historic Priest’s House, this is more than just a celebration—it’s a banquet of tradition, revelry, and spectacle. Raise a goblet of mulled wine, feast in a hall rich with history, and dance beneath the flickering glow of candlelight.
+
+  Whether you are a returning guest or experiencing the Gala for the first time, this is an evening you won’t want to miss.
+date: 17th January 2026
+time: 5:00pm - 11:30pm
+location: The Priest's House, Barden Tower, Skipton BD23 6AS
+schedule:
+  - time: "17:00"
+    activity: "🍷 Arrival: Mulled wine and warm welcomes."
+  - time: "17:30"
+    activity: "⏰ Time-in Begins: Guests start settling in."
+  - time: "18:00"
+    activity: "🏰 Banquet Hall Opens: Step inside for a feast worthy of legend."
+standard_menu:
+  - Mixed vegetable broth
+  - Poacher's salmon with wild dressed leaves
+  - Slow braised lamb shank, rosemary and red wine jus
+vegetarian_menu:
+  - Mixed vegetable broth
+  - Almond Fritter, chickpea & saffron dip
+  - Mixed nut tartlet, peas, parsley and mint sauce
+payment_info: >
+  **Total Price:** £95 per guest
+
+
+  **Deposit:** £45 to secure your position
+
+
+  **Remaining Balance:** £50 due no later than 1st December (can be paid earlier)
+testimonials:
+  - quote: I have long admired Marcus Crossland – his charm is as enduring as the mulled wine served at these feasts.
+    author: Maud of Buckley
+  - quote: The splendor of the Marches was truly on display; candles have never burned so magnificently!
+    author: Halvind Brinegold
+gallery:
+  - image: /gallery/gala01.png
+  - image: /gallery/gala02.png
+  - image: /gallery/gala03.png
+  - image: /gallery/gala04.png
+  - image: /gallery/gala05.png
+  - image: /gallery/gala06.png
+  - image: /gallery/gala07.png
+  - image: /gallery/gala08.png
