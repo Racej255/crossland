@@ -4,8 +4,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="styles.css?v=20251010">
-<script src="script.js?v=20251010" defer></script>
+<link rel="stylesheet" href="styles.css?v=mobilefix-3">
+<script src="script.js?v=mobilefix-3" defer></script>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>House Crossland – The Yeoman’s End</title>
 <!-- Google fonts for elegant display -->
@@ -15,6 +15,7 @@
 </head>
 <body>
 <!-- Navigation bar -->
+<!-- Navigation bar -->
 <header class="navbar">
   <div class="container nav-container">
     <div class="logo">
@@ -23,15 +24,12 @@
     </div>
 
     <!-- Hamburger button -->
-<button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-  <span></span><span></span><span></span>
-</button>
-<nav class="nav-menu">
-  <!-- your <ul> ... -->
-</nav>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
 
-    <!-- Collapsible menu -->
-    <nav class="nav-menu">
+    <!-- Collapsible menu (single instance) -->
+    <nav class="nav-menu" id="site-nav" aria-label="Primary">
       <ul>
         <li><a href="#events">Events</a></li>
         <li><a href="#about">About</a></li>
@@ -44,6 +42,7 @@
     </nav>
   </div>
 </header>
+
 <!-- Hero section -->
 <section class="hero hero-section">
 <div class="hero-overlay"></div>
