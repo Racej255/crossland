@@ -103,11 +103,11 @@ p {
   z-index: 1000;
 }
 
-.nav-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem 0;
+.nav-container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:relative; /* needed for the dropdown to anchor */
 }
 
 .logo {
@@ -1376,41 +1376,139 @@ html, body {
   overflow-x: hidden;
 }
 img, video, canvas { max-width: 100%; height: auto; }
+/* ============================================================
+   NAVIGATION BAR (House Crossland)
+   ============================================================ */
 
-/* NAVBAR */
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
   position: relative;
-  min-height: var(--nav-height);
+  min-height: var(--nav-height, 64px);
   width: 100%;
   z-index: 1000;
+  background: var(--brand-green-dark, #062e16);
+  padding: 0.4rem 1rem;
 }
-.nav-links {
+
+/* Logo area */
+.logo {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
   align-items: center;
+  gap: 0.5rem;
 }
-#nav-toggle {
-  display: none;
-  appearance: none;
-  border: 2px solid var(--brand-gold);
-  background: rgba(0,0,0,0.25);
-  color: var(--brand-gold);
+.logo img {
+  height: 40px;
+}
+.logo span {
+  font-family: var(--font-display, 'Cinzel', serif);
+  font-weight: 700;
+  color: var(--brand-gold, #d4af37);
   font-size: 1.4rem;
-  line-height: 1;
-  cursor: pointer;
-  width: 44px; height: 44px;
+}
+
+/* Standard (desktop) nav menu */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.nav-menu a {
+  text-decoration: none;
+  color: var(--brand-cream, #f8f5e7);
+  font-weight: 600;
+  position: relative;
+  transition: color 0.25s ease;
+}
+.nav-menu a:hover {
+  color: var(--brand-gold, #d4af37);
+}
+
+/* ------------------------------------------------------------
+   Hamburger button
+   ------------------------------------------------------------ */
+.nav-toggle {
+  display: none;  /* hidden on desktop */
+  border: 1px solid var(--brand-gold, #d4af37);
+  background: rgba(6, 46, 22, 0.75);
+  color: var(--brand-gold, #d4af37);
+  width: 36px;
+  height: 36px;
   border-radius: 8px;
-  align-items: center; justify-content: center;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
 }
-#nav-toggle:focus-visible {
-  outline: 3px solid var(--brand-gold);
-  outline-offset: 2px;
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  margin: 5px auto;
+  background: var(--brand-gold, #d4af37);
+  transition: transform .2s ease, opacity .2s ease;
 }
+
+/* ------------------------------------------------------------
+   Responsive behaviour
+   ------------------------------------------------------------ */
+@media (max-width: 900px) {
+  .nav-toggle {
+    display: inline-flex; /* show burger on mobile */
+  }
+
+  /* Collapse nav menu */
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    width: min(92vw, 420px);
+    background: rgba(20, 45, 20, 0.97);
+    border: 1px solid rgba(212,175,55,0.25);
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .25s ease;
+  }
+
+  .nav-menu ul {
+    list-style: none;
+    padding: .75rem 1rem 1rem;
+    margin: 0;
+    width: 100%;
+  }
+
+  .nav-menu li {
+    width: 100%;
+  }
+
+  .nav-menu a {
+    display: block;
+    padding: .6rem 0;
+    width: 100%;
+  }
+
+  body.nav-open .nav-menu {
+    max-height: 60vh;
+  }
+
+  /* Burger to ✕ animation */
+  body.nav-open .nav-toggle span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  body.nav-open .nav-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+  body.nav-open .nav-toggle span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}
+
 
 /* HERO */
 .hero, .hero-section {
