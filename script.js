@@ -524,4 +524,30 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // ------------------------------------------------------------------
+  // Mobile navigation toggle functionality
+  // Attach click handlers to any hamburger buttons present in the markup. When
+  // clicked, these buttons toggle an `open` class on the adjacent <nav>
+  // element, which expands or collapses the menu via CSS.  Additionally,
+  // clicking a link inside the menu will close the menu to avoid leaving it
+  // open on small screens.
+  const navToggles = document.querySelectorAll('.nav-toggle');
+  navToggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      const nav = toggle.parentElement.querySelector('nav');
+      if (nav) {
+        nav.classList.toggle('open');
+      }
+    });
+  });
+  // Close the mobile menu when any nav link is clicked
+  document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      const nav = link.closest('nav');
+      if (nav) {
+        nav.classList.remove('open');
+      }
+    });
+  });
 });
