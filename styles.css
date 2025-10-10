@@ -63,19 +63,6 @@ img {
   margin: 0 auto;
 }
 
-/* Use a wider container on small screens to maximise horizontal space and
-   centralise section panels. */
-@media (max-width: 768px) {
-  .container {
-    width: 95%;
-  }
-  /* Reduce padding on panels inside sections so they don’t appear too
-     narrow on mobile */
-  section:not(.hero):not(.marcus-section) > .container {
-    padding: 1.5rem;
-  }
-}
-
 h1, h2, h3 {
   font-family: var(--font-heading);
   margin-top: 0;
@@ -177,77 +164,6 @@ nav a:hover::after {
   width: 100%;
 }
 
-/*--------------------------------------------------------------
- * Mobile navigation toggle styles
- *
- * A hamburger button appears beside the logo on narrow screens.  The
- * default layout displays the nav items inline.  When the viewport
- * becomes too narrow to fit the navigation links, the toggle is
- * revealed and the nav list collapses into a vertical panel that
- * expands when triggered via JavaScript.
- */
-
-/* Hide the toggle on larger screens */
-.nav-toggle {
-  display: none;
-  font-size: 2rem;
-  line-height: 1;
-  background: none;
-  border: none;
-  color: var(--accent);
-  cursor: pointer;
-  padding: 0.25rem 0.5rem;
-}
-
-/* Additional wrapper class on nav for more control */
-.nav-menu {
-  /* Ensure nav takes full width when positioned absolutely on mobile */
-  position: relative;
-}
-
-/* Mobile behaviour */
-@media (max-width: 900px) {
-  /* Display the toggle button and hide the nav menu by default */
-  .nav-toggle {
-    display: block;
-  }
-  .nav-container {
-    position: relative;
-  }
-  /* Hide the nav menu until toggled */
-  .nav-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: rgba(9, 36, 24, 0.95);
-    border-bottom: 1px solid rgba(200, 160, 75, 0.15);
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.3s ease;
-    z-index: 999;
-  }
-  /* When the nav has the `.open` class (set via JS), allow it to expand */
-  .nav-menu.open {
-    max-height: 400px;
-  }
-  .nav-menu ul {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem 0;
-  }
-  .nav-menu li {
-    width: 100%;
-    text-align: center;
-  }
-  .nav-menu a {
-    display: block;
-    width: 100%;
-    padding: 0.5rem 0;
-  }
-}
-
 /* Hero section */
 /*
  * Hero section
@@ -269,23 +185,6 @@ nav a:hover::after {
   justify-content: center;
   text-align: center;
   color: var(--text);
-}
-
-/* Adjust the hero on small screens so text scales down and the banner does not
-   overwhelm the viewport.  Reduce the height and font sizes, and add top
-   padding to compensate for the fixed navbar. */
-@media (max-width: 768px) {
-  .hero {
-    height: 50vh;
-    padding-top: 3rem;
-  }
-  .hero h1 {
-    font-size: 2.4rem;
-  }
-  .hero p {
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-  }
 }
 
 .hero-overlay {
@@ -381,8 +280,7 @@ section:not(.hero):not(.marcus-section) > .container {
   margin-top: 0;
   font-size: 1.6rem;
   color: var(--accent-light);
-  /* Prevent event titles from wrapping on larger screens.  This is
-     overridden on mobile so long names wrap instead of overflowing. */
+  /* Prevent event titles from wrapping onto multiple lines */
   white-space: nowrap;
 }
 
@@ -1372,12 +1270,6 @@ margin-bottom: 0.75rem;
     width: 100%;
     margin-bottom: 2rem;
   }
-
-  /* Allow long event titles to wrap on small screens */
-  .event-card h3 {
-    white-space: normal;
-    font-size: 1.4rem;
-  }
 }
 
 /* ---------------------------------------------------------------------- */
@@ -1410,22 +1302,6 @@ margin-bottom: 0.75rem;
 #signup-float {
   right: 1rem;
   bottom: 6rem;
-}
-
-/* On narrow screens centre the floating CTA horizontally and tuck it closer
-   to the bottom edge so it doesn’t overlap content */
-@media (max-width: 768px) {
-  .gala-cta,
-  .cta-float {
-    right: 50%;
-    transform: translateX(50%);
-    bottom: 3rem;
-  }
-  #signup-float {
-    right: 50%;
-    transform: translateX(50%);
-    bottom: 4rem;
-  }
 }
 
 /* Section placeholder images in the gala page */
@@ -1486,4 +1362,237 @@ margin-bottom: 0.75rem;
   margin-top: 0.5rem;
   font-size: 0.9rem;
   color: #5a4224;
+}
+
+
+/* == Responsive Fixes BEGIN == */
+:root {
+  --nav-height: 64px;
+  --brand-gold: #D4A94E; /* fallback if your theme doesn't already set this */
+}
+* { box-sizing: border-box; }
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+img, video, canvas { max-width: 100%; height: auto; }
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  position: relative;
+  min-height: var(--nav-height);
+  width: 100%;
+  z-index: 1000;
+}
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+#nav-toggle {
+  display: none;
+  appearance: none;
+  border: 2px solid var(--brand-gold);
+  background: rgba(0,0,0,0.25);
+  color: var(--brand-gold);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  width: 44px; height: 44px;
+  border-radius: 8px;
+  align-items: center; justify-content: center;
+}
+#nav-toggle:focus-visible {
+  outline: 3px solid var(--brand-gold);
+  outline-offset: 2px;
+}
+
+/* HERO */
+.hero, .hero-section {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.hero * { max-width: 100%; }
+.hero h1, .hero .title {
+  margin: 0;
+  line-height: 1.1;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  font-size: clamp(1.6rem, 6vw, 3rem);
+}
+.hero p { font-size: clamp(1rem, 3.5vw, 1.25rem); }
+
+/* CARDS & GRIDS */
+.cards, .card-grid, .members-grid, .events-grid, .section-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  width: 100%;
+}
+.card, .member-card, .event-card { min-width: 0; }
+
+/* General containers */
+.container, .wrapper, main, section { max-width: 100%; }
+
+@media (max-width: 900px) {
+  .nav-links {
+    position: fixed;
+    top: var(--nav-height);
+    left: 0; right: 0;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    background: rgba(0,0,0,0.95);
+    backdrop-filter: saturate(120%) blur(4px);
+    padding: .5rem 0;
+    z-index: 3200;
+    max-height: calc(100vh - var(--nav-height));
+    overflow-y: auto;
+  }
+  .nav-links.open { display: flex; }
+  #nav-toggle { display: inline-flex; }
+  .nav-links, .nav-links ul { list-style: none; margin: 0; padding: 0; }
+  .nav-links li { width: 100%; }
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 1rem 1.25rem;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-links a:last-child { border-bottom: none; }
+  body.menu-open { overflow: hidden; }
+}
+  .hero .content, .hero-content, .banner-text { padding: 0 1rem; }
+}
+/* == Responsive Fixes END == */
+
+
+
+/* Small helper to keep hamburger aligned neatly on the right if needed */
+@media (max-width: 900px) {
+  .nav-container { gap: .5rem; }
+  nav { display: block; }
+  #nav-toggle { margin-left: auto; }
+}
+
+
+/* == Mobile Nav Clickability Patch == */
+nav { position: relative; z-index: 3000; } /* keep nav above hero without changing its layout */
+#nav-toggle { position: relative; z-index: 3500; pointer-events: auto; }
+@media (max-width: 900px) {
+  .hero, .hero-section { position: relative; z-index: 1; } /* ensure hero never overlays nav */
+  .nav-links { z-index: 3200; }
+}
+
+@media (max-width: 900px){
+  /* == Force hidden closed menu == */
+  .nav-links:not(.open){ display: none !important; }
+}
+
+/* == Desktop nav list reset == */
+.nav-links, .nav-links ul { list-style: none; margin: 0; padding: 0; }
+.nav-links li { margin: 0; padding: 0; }
+
+
+/* == Green & Gold Mobile Menu == */
+@media (max-width: 900px){
+  .nav-links {
+    background: #0b2d1a; /* rich green backdrop */
+    color: #d4a94e; /* gold text */
+  }
+  .nav-links a {
+    color: #d4a94e;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .nav-links a:hover,
+  .nav-links a:focus {
+    background: rgba(212,169,78,0.15);
+  }
+}
+
+/* == Event Card Text Overflow Fix == */
+.event-card, .card {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+.event-card h3, .card h3, .event-card p, .card p {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+  max-width: 100%;
+}
+
+
+/* == Whole-word wrapping for event and card text == */
+.event-card h1, .event-card h2, .event-card h3,
+.card h1, .card h2, .card h3,
+.event-card p, .card p,
+.event-card .card-title, .card .card-title {
+  word-break: normal;          /* don't break inside words */
+  overflow-wrap: break-word;   /* move whole word to next line if needed */
+  hyphens: none;               /* avoid auto hyphenation */
+  white-space: normal;
+}
+
+/* == Prevent mid-word breaks completely (v9) == */
+.event-card h1, .event-card h2, .event-card h3,
+.card h1, .card h2, .card h3 {
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  hyphens: none;
+}
+
+
+/* == Event title wrap & unclipping (v10) == */
+.event-card h1, .event-card h2, .event-card h3,
+.card h1, .card h2, .card h3 {
+  display: block;
+  white-space: normal !important;  /* allow wrapping */
+  word-break: keep-all;            /* wrap only at word boundaries */
+  overflow-wrap: normal;           /* don't force mid-word breaks */
+  hyphens: none;
+  overflow: visible;               /* don't clip the text */
+}
+
+.event-card, .card {
+  /* let height expand; don't clip children text */
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Ensure headings respect container width */
+.event-card h1, .event-card h2, .event-card h3,
+.card h1, .card h2, .card h3 {
+  max-width: 100%;
+}
+
+
+/* == Gala page heading wrap (v12) == */
+.gala-hero h1, .gala-hero h2, .gala-hero h3,
+.gala-section h1, .gala-section h2, .gala-section h3,
+main h1, main h2, main h3 {
+  white-space: normal !important;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  hyphens: none;
+  max-width: 100%;
+  overflow: visible;
 }

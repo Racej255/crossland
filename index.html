@@ -1,452 +1,416 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>House Crossland – The Yeoman’s End</title>
-    <!-- Google fonts for elegant display -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>House Crossland – The Yeoman’s End</title>
+<!-- Google fonts for elegant display -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&amp;family=Lato:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
 </head>
 <body>
-    <!-- Navigation bar -->
-    <header class="navbar">
-        <div class="container nav-container">
-            <div class="logo">
-                <img src="house_emblem.png" alt="House Crossland Emblem">
-                <span>House Crossland</span>
-            </div>
-            <!-- Mobile nav toggle button appears on small screens -->
-            <button class="nav-toggle" aria-label="Toggle navigation">
-                <!-- Unicode hamburger icon ensures consistent rendering across devices -->
-                &#9776;
-            </button>
-            <nav class="nav-menu">
-                <ul>
-                    <li><a href="#events">Events</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#members">Members</a></li>
-                    <li><a href="#history">History</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <!-- Link to the gala page for quick access from the main navigation -->
-                    <li><a href="gala.html">Gala</a></li>
-                    <li><a href="#join">Join</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero section -->
-    <section class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>House Crossland</h1>
-            <p>Purveyors of The Yeoman’s End — gambling, favors&nbsp;&amp;&nbsp;fun in the Marches</p>
-            <!-- Updated CTA to guide visitors to the about section -->
-            <a href="#about" class="btn btn-primary">Find out more about us</a>
-        </div>
-    </section>
-
-    <!-- Upcoming events -->
-    <section id="events" class="section events-section">
-        <div class="container">
-            <h2>Upcoming Events</h2>
-            <div class="events-grid">
-                <!-- Upcoming events have been updated to remove past dates. -->
-                <div class="event-card">
-                    <h3>Grand Crossland Gala</h3>
-                    <p class="event-date">17 January 2026</p>
-                    <p>Celebrate Marcus Crossland’s birthday with an unforgettable night of feasting and revelry. <a href="gala.html">Learn more</a></p>
-                </div>
-                <div class="event-card">
-                    <h3>Empire E1: Winter Solstice</h3>
-                    <p class="event-date">24–26 April 2026</p>
-                    <p>Join House Crossland for the first Profound Decisions event of the year at the Steeplechase LRP Centre.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About section -->
-    <section id="about" class="section about-section">
-        <div class="container about-container">
-            <div class="about-text">
-                <h2>Who We Are</h2>
-                <blockquote>
-                    <p>“A handshake can be worth more than gold… if you know whose hand to shake.”</p>
-                    <cite>— Marcus Crossland</cite>
-                </blockquote>
-                <!-- In‑game and out‑of‑game sections reflect the original site copy. -->
-                <h3>In‑Game</h3>
-                <p>House Crossland is well‑connected, resourceful and always has an opportunity for those who know where to look. We deal in favors, coin and influence, ensuring that no opportunity is ever wasted. What we truly do, and how we operate, is something best discovered in person. Come find us in the Marches, and perhaps we can come to an understanding.</p>
-                <h3>Out‑of‑Game</h3>
-                <p>We’re a friendly and welcoming group at Empire LRP, always happy to help new players find their footing. Whether you need guidance on the game, connections to get involved or just a place to hang out, House Crossland is here to support you.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Marcus highlight section -->
-    <section id="marcus" class="section marcus-section">
-        <div class="container marcus-container">
-            <div class="marcus-text">
-                <h2>Marcus Crossland</h2>
-                <h3>House Steward</h3>
-                <p>As the steward of House Crossland, Marcus is the beating heart of the Yeoman’s End. He’s the first to strike a deal and the last to leave the table, always ready with a clever plan and a winning smile. Under his guidance, our house has grown from a handful of vagabonds into a force to be reckoned with.</p>
-            </div>
-            <div class="marcus-image">
-                <img src="marcus-hero.png" alt="Marcus Crossland portrait">
-            </div>
-        </div>
-    </section>
-
-    <!-- Members section -->
-    <section id="members" class="section members-section">
-        <div class="container">
-            <h2>Our Members</h2>
-            <p class="members-intro">House Crossland comprises a varied group of individuals, each bringing unique talents to our collective endeavours. Click on a portrait to learn more about their roles and stories.</p>
-            <!-- Active members group -->
-         <div class="members-category">
-      <h3 class="members-category-title">Active Members</h3>
-      <div class="members-grid">
-        <div class="member-card" data-member="marcus" data-category="active">
-          <img src="members/marcus.png" alt="Marcus Crossland">
-          <h3>Marcus Crossland</h3>
-          <p class="role">House Steward</p>
-          <p>Purveyor of Pleasures</p>
-          <div class="overlay">Learn More</div>
-        </div>
-
-        <div class="member-card" data-member="bron" data-category="active">
-          <img src="members/bron.png" alt="Bron Ashwood">
-          <h3>Bron Ashwood</h3>
-          <p class="role">Second in Command</p>
-          <p>“Iron Ass”</p>
-          <div class="overlay">Learn More</div>
-        </div>
-
-        <div class="member-card" data-member="dick" data-category="active">
-          <img src="members/dick.png" alt="Richard “Dick” Roper">
-          <h3>Richard “Dick” Roper</h3>
-          <p class="role">Sweetie Merchant</p>
-          <p>Keeper of Kegs</p>
-          <div class="overlay">Learn More</div>
-        </div>
-
-        <div class="member-card" data-member="elias" data-category="active">
-          <img src="members/elias.png" alt="Elias Reede">
-          <h3>Elias Reede</h3>
-          <p class="role">House Enforcer</p>
-          <p>“The Reliable Drunk”</p>
-          <div class="overlay">Learn More</div>
-        </div>
-
-        <div class="member-card" data-member="joshua" data-category="active">
-          <img src="members/joshua.png" alt="Joshua Stone">
-          <h3>Joshua Stone</h3>
-          <p class="role">Captain of Arms</p>
-          <p>Protector of the House</p>
-          <div class="overlay">Learn More</div>
-        </div>
-
-        <div class="member-card" data-member="maxwell" data-category="active">
-          <img src="members/maxwell.png" alt="“Daddy” Maxwell">
-          <h3>“Daddy” Maxwell</h3>
-          <p class="role">Chief Chef of the House</p>
-          <p>Captain of the Fleet</p>
-          <div class="overlay">Learn More</div>
-        </div>
-
-        <div class="member-card" data-member="sadie" data-category="active">
-          <img src="members/sadie.png" alt="Sadie Raine">
-          <h3>Sadie Raine</h3>
-          <p class="role">House Magician</p>
-          <p>Provider of Shortbread</p>
-          <div class="overlay">Learn More</div>
-        </div>
-
-        <div class="member-card" data-member="kas" data-category="active">
-          <img src="members/kaspian.png" alt="Kaspian">
-          <h3>Kaspian</h3>
-          <p class="role">Militia Liaison</p>
-          <p>Cocktail Curator &amp; Herby Guy</p>
-          <div class="overlay">Learn More</div>
-        </div>
-
-        <div class="member-card" data-member="agnesmaybel" data-category="active">
-          <img src="members/agnesmaybel.png" alt="Agnes &amp; Maybel">
-          <h3>Agnes &amp; Maybel</h3>
-          <p class="role">Twin Tricksters</p>
-          <p>Faces of the House</p>
-          <div class="overlay">Learn More</div>
-        </div>
-
-        <div class="member-card" data-member="harold" data-category="active">
-          <img src="members/harold.png" alt="Harold">
-          <h3>Harold</h3>
-          <p class="role">House Runner</p>
-          <p>Performer &amp; Negotiator</p>
-          <div class="overlay">Learn More</div>
-        </div>
-
-        <div class="member-card" data-member="maud" data-category="active">
-          <img src="members/maud.png" alt="Maud">
-          <h3>Maud</h3>
-          <p class="role">Battle Medic</p>
-          <p>Keeper of Order</p>
-          <div class="overlay">Learn More</div>
-        </div>
-
-        <div class="member-card" data-member="aelfred" data-category="active">
-          <img src="members/aelfred.png" alt="Aelfred">
-          <h3>Aelfred</h3>
-          <p class="role">House Courier</p>
-          <p>Merchant of Shadows</p>
-          <div class="overlay">Learn More</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Retired or Missing Members -->
-    <div class="members-category">
-      <h3 class="members-category-title">Retired or Missing Members</h3>
-      <div class="members-grid">
-        <div class="member-card" data-member="bill" data-category="retired" data-status="Missing">
-          <img src="members/bill.png" alt="Boggy Bill">
-          <h3>Boggy Bill</h3>
-          <p class="role">Swamp Rat</p>
-          <p>Scallywag of Bregasland</p>
-          <div class="overlay">Learn More</div>
-        </div>
-
-        <div class="member-card" data-member="anthony" data-category="retired" data-status="Missing">
-          <img src="members/anthony.png" alt="Anthony Bikker">
-          <h3>Anthony Bikker</h3>
-          <p class="role">Archer &amp; Beekeeper</p>
-          <p>Maker of Poisons</p>
-          <div class="overlay">Learn More</div>
-        </div>
-
-        <div class="member-card" data-member="hector" data-category="retired" data-status="Missing">
-          <img src="members/hector.png" alt="Hector Greenfield">
-          <h3>Hector Greenfield</h3>
-          <p class="role">Enforcer</p>
-          <p>Dog’s Body</p>
-          <div class="overlay">Learn More</div>
-        </div>
-
-        <div class="member-card" data-member="mason" data-category="retired" data-status="Retired">
-          <img src="members/mason.png" alt="Mason Manchester">
-          <h3>Mason Manchester</h3>
-          <p class="role">False Steward</p>
-          <p>The Decoy of the House</p>
-          <div class="overlay">Learn More</div>
-        </div>
-      </div>
-    </div>
-<div class="members-category">
-  <h3 class="members-category-title">Fallen Members</h3>
-  <div class="members-grid">
-
-    <div class="member-card" data-member="broadwick" data-category="dead" data-status="Dead">
-      <img src="members/broadwick.png" alt="Robert Broadwick">
-      <h3>Robert Broadwick</h3>
-      <p class="role">House Co-Founder</p>
-      <p>Fallen in Battle</p>
-      <div class="overlay">Learn More</div>
-    </div>
-
-    <div class="member-card" data-member="daz" data-category="dead" data-status="Dead">
-      <img src="members/daz.png" alt="Daz Rock">
-      <h3>Daz Rock</h3>
-      <p class="role">Miner’s Champion</p>
-      <p>Fist of the People</p>
-      <div class="overlay">Learn More</div>
-    </div>
-
-    <div class="member-card" data-member="harvest" data-category="dead" data-status="Dead">
-      <img src="members/harvest.png" alt="Brother Harvest">
-      <h3>Brother Harvest</h3>
-      <p class="role">Spiritual Advisor</p>
-      <p>Prophet of the Pot</p>
-      <div class="overlay">Learn More</div>
-    </div>
-
-  </div>
+<!-- Navigation bar -->
+<header class="navbar">
+<div class="container nav-container">
+<div class="logo">
+<img alt="House Crossland Emblem" src="house_emblem.png"/>
+<span>House Crossland</span>
 </div>
-    </section>
-
-    <!-- History section -->
-    <section id="history" class="section history-section">
-        <div class="container">
-            <h2>Our History</h2>
-            <!-- Replace plain history quote with a parchment-styled blockquote -->
-            <blockquote class="quote-wrapper">
-                <p>“A name of convenience, not bloodline—a banner taken up by those who had none.”</p>
-                <cite>— Robert Broadwick</cite>
-            </blockquote>
-            <!-- History subsections mirroring the original site -->
-            <h3>The Rise of House Crossland</h3>
-            <p>The name Crossland was not always known in the Marches. In truth, it’s a name of convenience, not bloodline—a banner taken up by those who had none. It was whispered into being by a collection of strays, traders and opportunists who saw strength in numbers and prosperity in unity.</p>
-            <p>At the heart stands Marcus Crossland, the first to bear the name. Where he came from is a matter of speculation. Some say he was a disgraced farmhand, others that he cut his teeth dealing in debts and disputes before setting his sights on something greater. What’s certain is that he gathered the right sort of people—those who had fallen through the cracks of Marcher society but weren’t ready to be trampled.</p>
-            <h3>The Early Years</h3>
-            <p>It started small, as such things do. A few odd jobs, a little trade, a handful of favors called in. A deal struck in Hay. A debt settled in Meade. A problem quietly resolved in the night. Before long, the Crossland name began to mean something.</p>
-            <p>In the Marches, where land and loyalty hold power, House Crossland offered something different—a place for those without either. Not sworn to any one household, not reliant on favour, but moving between them, making themselves indispensable.</p>
-            <h3>Growth and Influence</h3>
-            <p>In recent years, with the Empire looking outward—toward war with the Jotun, toward reclaiming Bregasland—House Crossland took root in the Marches. With a keen sense for opportunity, they built connections rather than claims, trading in information, supplies and solutions to problems others would rather not acknowledge.</p>
-            <p>They spread their reach across the Marches, but never tied themselves down. Their people were seen at market fairs and in military camps, on the road with traders, or raising tankards in distant taverns. To some, they were an insult to tradition, a group who skirted the rigid order of Marcher life, refusing to be bound to one farm, one stead, one banner. But to others, they were a lifeline.</p>
-            <h3>The Yeoman’s End</h3>
-            <p>As their influence grew, so did their presence in Anvil. The Yeoman’s End became their base of operations—a place where deals are made, fortunes won and lost, and fates decided over bowls of their now‑famous soup. What began as a simple gathering spot has become known throughout the Empire as a nexus of opportunity and intrigue.</p>
-            <h3>Where We Stand Now</h3>
-            <p>House Crossland has grown beyond a handful of vagabonds scraping by on odd jobs. Our name carries weight; our presence in the Empire cannot be ignored, and when we take interest in a venture, it tends to prosper—or disappear. We are not noble, not yeoman, not militia, and yet we command respect. Where we go next is up to us. One thing is certain: House Crossland is not a family easily crossed, nor one to be taken lightly.</p>
-        </div>
-    </section>
-
-    <!-- Removed join, contact, new and quick-links sections.
+<nav>
+<button aria-expanded="false" aria-label="Toggle navigation" id="nav-toggle">☰</button><ul class="nav-links">
+<li><a href="#events">Events</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#members">Members</a></li>
+<li><a href="#history">History</a></li>
+<li><a href="#gallery">Gallery</a></li>
+<!-- Link to the gala page for quick access from the main navigation -->
+<li><a href="gala.html">Gala</a></li>
+<li><a href="#join">Join</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<!-- Hero section -->
+<section class="hero hero-section">
+<div class="hero-overlay"></div>
+<div class="hero-content">
+<h1>House Crossland</h1>
+<p>Purveyors of The Yeoman’s End — Gambling, Favors &amp; Fun in the Marches</p>
+<!-- Updated CTA to guide visitors to the about section -->
+<a class="btn btn-primary" href="#about">Find out more about us</a>
+</div>
+</section>
+<!-- Upcoming events -->
+<section class="section events-section" id="events">
+<div class="container">
+<h2>Upcoming Events</h2>
+<div class="events-grid">
+<!-- Upcoming events have been updated to remove past dates. -->
+<div class="event-card">
+<h3>Grand Crossland Gala</h3>
+<p class="event-date">17 January 2026</p>
+<p>Celebrate Marcus Crossland’s birthday with an unforgettable night of feasting and revelry. <a href="gala.html">Learn more</a></p>
+</div>
+<div class="event-card">
+<h3>Empire E1: Winter Solstice</h3>
+<p class="event-date">24–26 April 2026</p>
+<p>Join House Crossland for the first Profound Decisions event of the year at the Steeplechase LRP Centre.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- About section -->
+<section class="section about-section" id="about">
+<div class="container about-container">
+<div class="about-text">
+<h2>Who We Are</h2>
+<blockquote>
+<p>“A handshake can be worth more than gold… if you know whose hand to shake.”</p>
+<cite>— Marcus Crossland</cite>
+</blockquote>
+<!-- In‑game and out‑of‑game sections reflect the original site copy. -->
+<h3>In‑Game</h3>
+<p>House Crossland is well‑connected, resourceful and always has an opportunity for those who know where to look. We deal in favours, coin and influence, ensuring that no opportunity is ever wasted. What we really get up to, and how we go about it, is something best discovered in person. Come find us in the Marches, and perhaps we you can learn a bit more about the real Crosslands.</p>
+<h3>Out‑of‑Game</h3>
+<p>We’re a friendly and welcoming group at Empire LRP, always happy to help new players find their footing. Whether you need guidance on the game, connections to get involved or just a place to hang out, House Crossland is happy to support you.</p>
+</div>
+</div>
+</section>
+<!-- Marcus highlight section -->
+<section class="section marcus-section" id="marcus">
+<div class="container marcus-container">
+<div class="marcus-text">
+<h2>Marcus Crossland</h2>
+<h3>House Steward</h3>
+<p>As the steward of House Crossland, Marcus is the beating heart of the family. He’s the always keen to strike a deal and often found gambling in the casinos of Anvil. He's a ruthless business-man, but loyal to his family. Under his guidance, our house has grown from a handful of vagabonds into a force to be reckoned with.</p>
+</div>
+<div class="marcus-image">
+<img alt="Marcus Crossland portrait" src="marcus-hero.png"/>
+</div>
+</div>
+</section>
+<!-- Members section -->
+<section class="section members-section" id="members">
+<div class="container">
+<h2>Our Members</h2>
+<p class="members-intro">House Crossland comprises a varied group of individuals, each bringing unique talents to our collective endeavours. Click on a portrait to learn more about their roles and stories.</p>
+<!-- Active members group -->
+<div class="members-category">
+<h3 class="members-category-title">Active Members</h3>
+<div class="members-grid">
+<div class="member-card" data-category="active" data-member="marcus">
+<img alt="Marcus Crossland" src="members/marcus.png"/>
+<h3>Marcus Crossland</h3>
+<p class="role">House Steward</p>
+<p>Purveyor of Pleasures</p>
+<div class="overlay">Learn More</div>
+</div>
+<div class="member-card" data-category="active" data-member="bron">
+<img alt="Bron Ashwood" src="members/bron.png"/>
+<h3>Bron Ashwood</h3>
+<p class="role">Second in Command</p>
+<p>“Iron Ass”</p>
+<div class="overlay">Learn More</div>
+</div>
+<div class="member-card" data-category="active" data-member="dick">
+<img alt="Richard “Dick” Roper" src="members/dick.png"/>
+<h3>Richard “Dick” Roper</h3>
+<p class="role">Sweetie Merchant</p>
+<p>Keeper of Kegs</p>
+<div class="overlay">Learn More</div>
+</div>
+<div class="member-card" data-category="active" data-member="elias">
+<img alt="Elias Reede" src="members/elias.png"/>
+<h3>Elias Reede</h3>
+<p class="role">House Enforcer</p>
+<p>“The Reliable Drunk”</p>
+<div class="overlay">Learn More</div>
+</div>
+<div class="member-card" data-category="active" data-member="joshua">
+<img alt="Joshua Stone" src="members/joshua.png"/>
+<h3>Joshua Stone</h3>
+<p class="role">Captain of Arms</p>
+<p>Protector of the House</p>
+<div class="overlay">Learn More</div>
+</div>
+<div class="member-card" data-category="active" data-member="maxwell">
+<img alt="“Daddy” Maxwell" src="members/maxwell.png"/>
+<h3>“Daddy” Maxwell</h3>
+<p class="role">Chief Chef of the House</p>
+<p>Captain of the Fleet</p>
+<div class="overlay">Learn More</div>
+</div>
+<div class="member-card" data-category="active" data-member="sadie">
+<img alt="Sadie Raine" src="members/sadie.png"/>
+<h3>Sadie Raine</h3>
+<p class="role">House Magician</p>
+<p>Provider of Shortbread</p>
+<div class="overlay">Learn More</div>
+</div>
+<div class="member-card" data-category="active" data-member="kas">
+<img alt="Kaspian" src="members/kaspian.png"/>
+<h3>Kaspian</h3>
+<p class="role">Militia Liaison</p>
+<p>Cocktail Curator &amp; Herby Guy</p>
+<div class="overlay">Learn More</div>
+</div>
+<div class="member-card" data-category="active" data-member="agnesmaybel">
+<img alt="Agnes &amp; Maybel" src="members/agnesmaybel.png"/>
+<h3>Agnes &amp; Maybel</h3>
+<p class="role">Twin Tricksters</p>
+<p>Faces of the House</p>
+<div class="overlay">Learn More</div>
+</div>
+<div class="member-card" data-category="active" data-member="harold">
+<img alt="Harold" src="members/harold.png"/>
+<h3>Harold</h3>
+<p class="role">House Runner</p>
+<p>Performer &amp; Negotiator</p>
+<div class="overlay">Learn More</div>
+</div>
+<div class="member-card" data-category="active" data-member="maud">
+<img alt="Maud" src="members/maud.png"/>
+<h3>Maud</h3>
+<p class="role">Battle Medic</p>
+<p>Keeper of Order</p>
+<div class="overlay">Learn More</div>
+</div>
+<div class="member-card" data-category="active" data-member="aelfred">
+<img alt="Aelfred" src="members/aelfred.png"/>
+<h3>Aelfred</h3>
+<p class="role">House Courier</p>
+<p>Merchant of Shadows</p>
+<div class="overlay">Learn More</div>
+</div>
+</div>
+</div>
+<!-- Retired or Missing Members -->
+<div class="members-category">
+<h3 class="members-category-title">Retired or Missing Members</h3>
+<div class="members-grid">
+<div class="member-card" data-category="retired" data-member="bill" data-status="Missing">
+<img alt="Boggy Bill" src="members/bill.png"/>
+<h3>Boggy Bill</h3>
+<p class="role">Swamp Rat</p>
+<p>Scallywag of Bregasland</p>
+<div class="overlay">Learn More</div>
+</div>
+<div class="member-card" data-category="retired" data-member="anthony" data-status="Missing">
+<img alt="Anthony Bikker" src="members/anthony.png"/>
+<h3>Anthony Bikker</h3>
+<p class="role">Archer &amp; Beekeeper</p>
+<p>Maker of Poisons</p>
+<div class="overlay">Learn More</div>
+</div>
+<div class="member-card" data-category="retired" data-member="hector" data-status="Missing">
+<img alt="Hector Greenfield" src="members/hector.png"/>
+<h3>Hector Greenfield</h3>
+<p class="role">Enforcer</p>
+<p>Dog’s Body</p>
+<div class="overlay">Learn More</div>
+</div>
+<div class="member-card" data-category="retired" data-member="mason" data-status="Retired">
+<img alt="Mason Manchester" src="members/mason.png"/>
+<h3>Mason Manchester</h3>
+<p class="role">False Steward</p>
+<p>The Decoy of the House</p>
+<div class="overlay">Learn More</div>
+</div>
+</div>
+</div>
+<div class="members-category">
+<h3 class="members-category-title">Fallen Members</h3>
+<div class="members-grid">
+<div class="member-card" data-category="dead" data-member="broadwick" data-status="Dead">
+<img alt="Robert Broadwick" src="members/broadwick.png"/>
+<h3>Robert Broadwick</h3>
+<p class="role">House Co-Founder</p>
+<p>Fallen in Battle</p>
+<div class="overlay">Learn More</div>
+</div>
+<div class="member-card" data-category="dead" data-member="daz" data-status="Dead">
+<img alt="Daz Rock" src="members/daz.png"/>
+<h3>Daz Rock</h3>
+<p class="role">Miner’s Champion</p>
+<p>Fist of the People</p>
+<div class="overlay">Learn More</div>
+</div>
+<div class="member-card" data-category="dead" data-member="harvest" data-status="Dead">
+<img alt="Brother Harvest" src="members/harvest.png"/>
+<h3>Brother Harvest</h3>
+<p class="role">Spiritual Advisor</p>
+<p>Prophet of the Pot</p>
+<div class="overlay">Learn More</div>
+</div>
+</div>
+</div>
+</div></section>
+<!-- History section -->
+<section class="section history-section" id="history">
+<div class="container">
+<h2>Our History</h2>
+<!-- Replace plain history quote with a parchment-styled blockquote -->
+<blockquote class="quote-wrapper">
+<p>“A name of convenience, not bloodline—a banner taken up by those who had none.”</p>
+<cite>— Robert Broadwick</cite>
+</blockquote>
+<!-- History subsections mirroring the original site -->
+<h3>The Rise of House Crossland</h3>
+<p>The name Crossland was not always known in the Marches. In truth, it’s a name of convenience, not bloodline—a banner taken up by those who had none. It was whispered into being by a collection of strays, traders and opportunists who saw strength in numbers and prosperity in unity.</p>
+<p>At the heart stands Marcus Crossland, the first to bear the name. Where he came from is a matter of speculation. Some say he was a disgraced farmhand, others that he cut his teeth dealing in debts and disputes before setting his sights on something greater. What’s certain is that he gathered the right sort of people—those who had fallen through the cracks of Marcher society but weren’t ready to be trampled.</p>
+<h3>The Early Years</h3>
+<p>It started small, as such things do. A few odd jobs, a little trade, a handful of favors called in. A deal struck in Hay. A debt settled in Meade. A problem quietly resolved in the night. Before long, the Crossland name began to mean something.</p>
+<p>In the Marches, where land and loyalty hold power, House Crossland offered something different—a place for those without either. Not sworn to any one household, not reliant on favour, but moving between them, making themselves indispensable.</p>
+<h3>Growth and Influence</h3>
+<p>In recent years, with the Empire looking outward—toward war with the Jotun, toward reclaiming Bregasland—House Crossland took root in the Marches. With a keen sense for opportunity, they built connections rather than claims, trading in information, supplies and solutions to problems others would rather not acknowledge.</p>
+<p>They spread their reach across the Marches, but never tied themselves down. Their people were seen at market fairs and in military camps, on the road with traders, or raising tankards in distant taverns. To some, they were an insult to tradition, a group who skirted the rigid order of Marcher life, refusing to be bound to one farm, one stead, one banner. But to others, they were a lifeline.</p>
+<h3>The Yeoman’s End</h3>
+<p>As their influence grew, so did their presence in Anvil. The Yeoman’s End became their base of operations—a place where deals are made, fortunes won and lost, and fates decided over bowls of their now‑famous soup. What began as a simple gathering spot has become known throughout the Empire as a nexus of opportunity and intrigue.</p>
+<h3>Where We Stand Now</h3>
+<p>House Crossland has grown beyond a handful of vagabonds scraping by on odd jobs. Our name carries weight; our presence in the Empire cannot be ignored, and when we take interest in a venture, it tends to prosper—or disappear. We are not noble, not yeoman, not militia, and yet we command respect. Where we go next is up to us. One thing is certain: House Crossland is not a family easily crossed, nor one to be taken lightly.</p>
+</div>
+</section>
+<!-- Removed join, contact, new and quick-links sections.
          These panels have been consolidated into the footer to reduce
          vertical scrolling.  Each original section is now represented
          as a column within the footer below. -->
+<!-- Easter egg toggle button for the soup recipe; this will be styled to be nearly invisible -->
+<div class="container" style="text-align: center;">
+<button id="soup-toggle" title="Cabbage soup awaits…">Psst… fancy a secret soup?</button>
+</div>
+<!-- Floating call‑to‑action button linking to the gala page -->
+<a class="gala-cta" href="gala.html" id="gala-cta" title="Learn about the Grand Crossland Gala">Coming to the Gala 2026?</a>
+<!-- Cabbage soup recipe modal -->
+<section class="soup-section" id="soup">
+<div class="soup-content">
+<span class="soup-close" id="soup-close">×</span>
+<h2>Crossland’s Cabbage Soup</h2>
+<p>A hearty, rustic soup brimming with tender cabbage and root vegetables — perfect for a chilly evening in the Marches.</p>
+<h3>Ingredients</h3>
+<ul class="ingredients-list">
+<li>1 small head of green cabbage, cored and shredded</li>
+<li>3 carrots, peeled and diced</li>
+<li>2 potatoes, peeled and diced</li>
+<li>2 celery stalks, diced</li>
+<li>1 large onion, chopped</li>
+<li>2 cloves garlic, minced</li>
+<li>6 cups vegetable broth</li>
+<li>1 bay leaf</li>
+<li>1 teaspoon caraway seeds (optional)</li>
+<li>2 tablespoons butter or oil</li>
+<li>Salt and freshly ground pepper to taste</li>
+</ul>
+<h3>Instructions</h3>
+<ol class="instructions-list">
+<li>Heat the butter or oil in a large pot over medium heat. Add the chopped onion and garlic; sauté until softened (about 3–4 minutes).</li>
+<li>Add the diced carrots, potatoes and celery. Cook for about 5 minutes, stirring occasionally.</li>
+<li>Stir in the shredded cabbage and cook until it begins to wilt, about 5 minutes.</li>
+<li>Add the vegetable broth, bay leaf and caraway seeds. Bring to a gentle boil, then reduce heat and simmer for 30–40 minutes until the vegetables are tender.</li>
+<li>Season with salt and pepper to taste. Remove the bay leaf before serving and ladle the soup hot into bowls.</li>
+</ol>
+</div>
+</section>
+<!-- Gallery section -->
+<section class="section gallery-section" id="gallery">
+  <div class="container">
+    <h2>Gallery</h2>
 
-    <!-- Easter egg toggle button for the soup recipe; this will be styled to be nearly invisible -->
-    <div class="container" style="text-align: center;">
-        <button id="soup-toggle" title="Cabbage soup awaits…">Psst… fancy a secret soup?</button>
+    <div class="carousel">
+      <div class="carousel-track">
+        <div class="carousel-slide"><img src="Gallery/Camp01.jpg" alt="The Yeoman’s End pub tent setup" loading="lazy" decoding="async"></div>
+        <div class="carousel-slide"><img src="Gallery/Camp02.jpg" alt="House Crossland camp E4 2025" loading="lazy" decoding="async"></div>
+        <div class="carousel-slide"><img src="Gallery/Lads.jpg" alt="Crossland members posing together" loading="lazy" decoding="async"></div>
+        <div class="carousel-slide"><img src="Gallery/Gang.jpg" alt="Group portrait of House Crossland in the forest" loading="lazy" decoding="async"></div>
+        <div class="carousel-slide"><img src="Gallery/Maybel.jpg" alt="Maybel smiling in the camp, cheeky bint" loading="lazy" decoding="async"></div>
+        <div class="carousel-slide"><img src="Gallery/Fire.jpg" alt="Performer spinning fire in front of the camp tents" loading="lazy" decoding="async"></div>
+        <div class="carousel-slide"><img src="Gallery/Sportsday.jpg" alt="Marchers competing in a three-legged race during Sports Day - Marcus and Dick won" loading="lazy" decoding="async"></div>
+        <div class="carousel-slide"><img src="Gallery/Brig.jpg" alt="Big Josh Stones big Brig" loading="lazy" decoding="async"></div>
+        <div class="carousel-slide"><img src="Gallery/Gala04.jpg" alt="Head table — Marcus looking grand at the Crossland Gala" loading="lazy" decoding="async"></div>
+        <div class="carousel-slide"><img src="Gallery/Gala10.jpg" alt="Bron playing dice at the table during the gala" loading="lazy" decoding="async"></div>
+      </div>
+
+      <button class="carousel-nav carousel-prev" aria-label="Previous slide">❮</button>
+      <button class="carousel-nav carousel-next" aria-label="Next slide">❯</button>
     </div>
 
-    <!-- Floating call‑to‑action button linking to the gala page -->
-    <a href="gala.html" id="gala-cta" class="gala-cta" title="Learn about the Grand Crossland Gala">Coming to the Gala 2026?</a>
-
-    <!-- Cabbage soup recipe modal -->
-    <section id="soup" class="soup-section">
-        <div class="soup-content">
-            <span id="soup-close" class="soup-close">&times;</span>
-            <h2>Crossland’s Cabbage Soup</h2>
-            <p>A hearty, rustic soup brimming with tender cabbage and root vegetables — perfect for a chilly evening in the Marches.</p>
-            <h3>Ingredients</h3>
-            <ul class="ingredients-list">
-                <li>1 small head of green cabbage, cored and shredded</li>
-                <li>3 carrots, peeled and diced</li>
-                <li>2 potatoes, peeled and diced</li>
-                <li>2 celery stalks, diced</li>
-                <li>1 large onion, chopped</li>
-                <li>2 cloves garlic, minced</li>
-                <li>6 cups vegetable broth</li>
-                <li>1 bay leaf</li>
-                <li>1 teaspoon caraway seeds (optional)</li>
-                <li>2 tablespoons butter or oil</li>
-                <li>Salt and freshly ground pepper to taste</li>
-            </ul>
-            <h3>Instructions</h3>
-            <ol class="instructions-list">
-                <li>Heat the butter or oil in a large pot over medium heat. Add the chopped onion and garlic; sauté until softened (about 3–4 minutes).</li>
-                <li>Add the diced carrots, potatoes and celery. Cook for about 5 minutes, stirring occasionally.</li>
-                <li>Stir in the shredded cabbage and cook until it begins to wilt, about 5 minutes.</li>
-                <li>Add the vegetable broth, bay leaf and caraway seeds. Bring to a gentle boil, then reduce heat and simmer for 30–40 minutes until the vegetables are tender.</li>
-                <li>Season with salt and pepper to taste. Remove the bay leaf before serving and ladle the soup hot into bowls.</li>
-            </ol>
-        </div>
-    </section>
-
-    <!-- Gallery section -->
-    <section id="gallery" class="section gallery-section">
-        <div class="container">
-            <h2>Gallery</h2>
-            <!-- Carousel to display more images; slides can be duplicated or replaced with your own -->
-            <div class="carousel">
-                <div class="carousel-track">
-                    <div class="carousel-slide"><img src="camp.png" alt="Gathering by the campfire"></div>
-                    <div class="carousel-slide"><img src="members/bron.png" alt="Gambling night at the Yeoman’s End"></div>
-                    <div class="carousel-slide"><img src="members/elias.png" alt="House meeting amongst friends"></div>
-                    <div class="carousel-slide"><img src="members/maxwell.png" alt="Trading session at dusk"></div>
-                    <div class="carousel-slide"><img src="unsplash_tavern.jpg" alt="Drinking at the tavern"></div>
-                    <div class="carousel-slide"><img src="flickr_tavern.jpg" alt="Evening ambience at the Yeoman’s End"></div>
-                    <div class="carousel-slide"><img src="hero.jpg" alt="Yeoman’s End exterior"></div>
-                    <div class="carousel-slide"><img src="marcus-hero.png" alt="Marcus Crossland portrait"></div>
-                </div>
-                <button class="carousel-nav carousel-prev" aria-label="Previous slide">&#10094;</button>
-                <button class="carousel-nav carousel-next" aria-label="Next slide">&#10095;</button>
-            </div>
-            <!-- If you have a Google Photos album, replace the link below with your shared album URL.
-                 The anchor opens in a new tab so visitors can explore the full gallery. -->
-            <p style="text-align:center; margin-top: 2rem;">
-                <a href="https://photos.app.goo.gl/2Zp9KW5U6pzT8pNX6" target="https://photos.app.goo.gl/2Zp9KW5U6pzT8pNX6" class="btn">View Full Album</a>
-            </p>
-        </div>
-    </section>
-
-    <!-- Gallery lightbox modal -->
-    <div id="gallery-modal" class="gallery-modal hidden">
-        <div class="gallery-modal-content">
-            <span id="gallery-modal-close" class="gallery-close">&times;</span>
-            <img id="gallery-modal-img" src="" alt="Gallery image">
-            <div class="gallery-caption" id="gallery-modal-caption"></div>
-            <span class="gallery-nav gallery-prev" id="gallery-prev">&#10094;</span>
-            <span class="gallery-nav gallery-next" id="gallery-next">&#10095;</span>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer-grid">
-            <div class="footer-column full" id="join">
-                <h3>Join House Crossland</h3>
-                <p>Interested in joining our house? We’re always on the lookout for resourceful individuals who understand the value of connections and opportunity.</p>
-                <p>Out‑of‑game, we welcome players of all experience levels. Whether you’re new to Empire LRP or a seasoned veteran looking for a new group, House Crossland offers camaraderie, assistance and plenty of roleplaying opportunities.</p>
-                <p>Find us at The Yeoman’s End in the Marches area during any event, or contact us through the details below.</p>
-            </div>
-            <div class="footer-column" id="contact">
-                <h3>Contact Us</h3>
-                <ul class="footer-list">
-                    <li>Email: <a href="mailto:housecrossland@gmail.com">housecrossland@gmail.com</a></li>
-                    <li>Discord: <a href="https://discord.gg" target="_blank" rel="noopener noreferrer">Join The Marches Discord</a></li>
-                    <li>Find us at The Yeoman’s End in the Marches during any Empire event!</li>
-                </ul>
-            </div>
-            <div class="footer-column" id="new">
-                <h3>New to Anvil?</h3>
-                <ul class="footer-list">
-                    <li><a href="https://www.profounddecisions.co.uk" target="_blank" rel="noopener noreferrer">New Player Guide</a></li>
-                    <li><a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Empire LRP Facebook</a></li>
-                    <li><a href="https://www.profounddecisions.co.uk" target="_blank" rel="noopener noreferrer">The Marches Nation</a></li>
-                    <li>Seek out House Crossland at The Yeoman’s End for help!</li>
-                </ul>
-            </div>
-            <div class="footer-column full" id="links">
-                <h3>Quick Links</h3>
-                <ul class="footer-list">
-                    <li><a href="https://www.profounddecisions.co.uk" target="_blank" rel="noopener noreferrer">Empire LRP Official Site</a></li>
-                    <li><a href="https://www.profounddecisions.co.uk" target="_blank" rel="noopener noreferrer">Empire Wiki</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="container footer-bottom">
-            <p>&copy; 2025 House Crossland. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- Member modal overlay -->
-    <div id="member-modal" class="modal hidden">
-        <div class="modal-content">
-            <span id="modal-close" class="modal-close">&times;</span>
-            <img id="modal-img" src="" alt="Large portrait">
-            <h3 id="modal-name"></h3>
-            <h4 id="modal-role"></h4>
-            <div class="modal-section">
-                <strong>Location:</strong> <span id="modal-location"></span>
-            </div>
-            <div class="modal-section">
-                <strong id="modal-about-title"></strong>
-                <p id="modal-about"></p>
-            </div>
-            <div class="modal-section">
-                <strong>Special Skills:</strong>
-                <p id="modal-skills"></p>
-            </div>
-            <!-- Navigation arrows to cycle through members -->
-            <span id="member-prev" class="member-nav member-prev" title="Previous member">&#10094;</span>
-            <span id="member-next" class="member-nav member-next" title="Next member">&#10095;</span>
-        </div>
-    </div>
-
-    <!-- Site script -->
-    <script src="script.js"></script>
+    <p style="text-align:center; margin-top: 2rem;">
+      <a class="btn" href="https://photos.app.goo.gl/2Zp9KW5U6pzT8pNX6" target="_blank">View Full Album</a>
+    </p>
+  </div>
+</section>
+<!-- Gallery lightbox modal -->
+<div class="gallery-modal hidden" id="gallery-modal">
+<div class="gallery-modal-content">
+<span class="gallery-close" id="gallery-modal-close">×</span>
+<img alt="Gallery image" id="gallery-modal-img" src=""/>
+<div class="gallery-caption" id="gallery-modal-caption"></div>
+<span class="gallery-nav gallery-prev" id="gallery-prev">❮</span>
+<span class="gallery-nav gallery-next" id="gallery-next">❯</span>
+</div>
+</div>
+<!-- Footer -->
+<footer class="footer">
+<div class="container footer-grid">
+<div class="footer-column full" id="join">
+<h3>Join House Crossland</h3>
+<p>Interested in joining our house? We’re always on the lookout for resourceful individuals who understand the value of connections and opportunity.</p>
+<p>Out‑of‑game, we welcome players of all experience levels. Whether you’re new to Empire LRP or a seasoned veteran looking for a new group, House Crossland offers camaraderie, assistance and plenty of roleplaying opportunities.</p>
+<p>Find us at The Yeoman’s End in the Marches area during any event, or contact us through the details below.</p>
+</div>
+<div class="footer-column" id="contact">
+<h3>Contact Us</h3>
+<ul class="footer-list">
+<li>Email: <a href="mailto:housecrossland@gmail.com">housecrossland@gmail.com</a></li>
+<li>Discord: <a href="https://discord.gg" rel="noopener noreferrer" target="_blank">Join The Marches Discord</a></li>
+<li>Find us at The Yeoman’s End in the Marches during any Empire event!</li>
+</ul>
+</div>
+<div class="footer-column" id="new">
+<h3>New to Anvil?</h3>
+<ul class="footer-list">
+<li><a href="https://www.profounddecisions.co.uk" rel="noopener noreferrer" target="_blank">New Player Guide</a></li>
+<li><a href="https://www.facebook.com" rel="noopener noreferrer" target="_blank">Empire LRP Facebook</a></li>
+<li><a href="https://www.profounddecisions.co.uk" rel="noopener noreferrer" target="_blank">The Marches Nation</a></li>
+<li>Seek out House Crossland at The Yeoman’s End for help!</li>
+</ul>
+</div>
+<div class="footer-column full" id="links">
+<h3>Quick Links</h3>
+<ul class="footer-list">
+<li><a href="https://www.profounddecisions.co.uk" rel="noopener noreferrer" target="_blank">Empire LRP Official Site</a></li>
+<li><a href="https://www.profounddecisions.co.uk" rel="noopener noreferrer" target="_blank">Empire Wiki</a></li>
+</ul>
+</div>
+</div>
+<div class="container footer-bottom">
+<p>© 2025 House Crossland. All rights reserved.</p>
+</div>
+</footer>
+<!-- Member modal overlay -->
+<div class="modal hidden" id="member-modal">
+<div class="modal-content">
+<span class="modal-close" id="modal-close">×</span>
+<img alt="Large portrait" id="modal-img" src=""/>
+<h3 id="modal-name"></h3>
+<h4 id="modal-role"></h4>
+<div class="modal-section">
+<strong>Location:</strong> <span id="modal-location"></span>
+</div>
+<div class="modal-section">
+<strong id="modal-about-title"></strong>
+<p id="modal-about"></p>
+</div>
+<div class="modal-section">
+<strong>Special Skills:</strong>
+<p id="modal-skills"></p>
+</div>
+<!-- Navigation arrows to cycle through members -->
+<span class="member-nav member-prev" id="member-prev" title="Previous member">❮</span>
+<span class="member-nav member-next" id="member-next" title="Next member">❯</span>
+</div>
+</div>
+<!-- Site script -->
+<script src="script.js"></script>
 </body>
 </html>

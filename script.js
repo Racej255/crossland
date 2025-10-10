@@ -524,28 +524,136 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+});
 
-  /* ------------------------------------------------------------------
-   * Mobile navigation toggle functionality
-   *
-   * On narrow viewports the navigation links collapse into a hidden panel
-   * controlled by a hamburger button.  When the user taps the button
-   * the panel slides open; tapping again or selecting a link will close
-   * it.  This keeps the header uncluttered on phones while still
-   * providing easy access to the site sections.
-   */
-  const navToggle = document.querySelector('.nav-toggle');
-  const navMenu = document.querySelector('.nav-menu');
-  if (navToggle && navMenu) {
-    navToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('open');
+/* == Nav Toggle == */
+document.addEventListener('DOMContentLoaded', function () {
+  const toggle = document.getElementById('nav-toggle');
+  const links = document.querySelector('.nav-links');
+  if (toggle && links) {
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+      // prevent body shift on open
+      document.body.style.overflowX = 'hidden';
     });
-    // Close the menu when any nav link is clicked
-    const navLinks = navMenu.querySelectorAll('a');
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('open');
+    // Close menu when a link is clicked (useful on mobile)
+    links.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
       });
     });
   }
+  // Safety: ensure no rogue wide elements cause horizontal scroll
+  document.querySelectorAll('table, pre, code, .wide').forEach(el => {
+    el.style.maxWidth = '100%';
+    el.style.overflowX = 'auto';
+  });
 });
+
+
+/* == Nav Toggle v2 == */
+document.addEventListener('DOMContentLoaded', function () {
+  const toggle = document.getElementById('nav-toggle');
+  const links = document.querySelector('nav .nav-links, .navbar .nav-links');
+  if (toggle && links) {
+    const closeMenu = () => {
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('menu-open');
+    };
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+      document.body.classList.toggle('menu-open', open);
+    });
+    // Close when a link is chosen
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    // Close on escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+  }
+  // Safety: ensure no rogue wide elements cause horizontal scroll
+  document.querySelectorAll('table, pre, code, .wide, .overflowing').forEach(el => {
+    el.style.maxWidth = '100%';
+    el.style.overflowX = 'auto';
+  });
+});
+
+
+/* == Nav Toggle v3 (defensive binding) == */
+(function attachNavToggle(){
+  function bind(){
+    var toggle = document.getElementById('nav-toggle');
+    if(!toggle) return;
+    // Ensure it's not treated as a submit button
+    if(!toggle.getAttribute('type')) toggle.setAttribute('type','button');
+    // Prefer the next sibling .nav-links (our UL)
+    var links = toggle.nextElementSibling && toggle.nextElementSibling.classList && toggle.nextElementSibling.classList.contains('nav-links')
+      ? toggle.nextElementSibling
+      : (document.querySelector('nav .nav-links') || document.querySelector('.navbar .nav-links'));
+    if(!links) return;
+    function openClose(force){
+      var willOpen = typeof force === 'boolean' ? force : !links.classList.contains('open');
+      links.classList.toggle('open', willOpen);
+      toggle.setAttribute('aria-expanded', String(willOpen));
+      document.body.classList.toggle('menu-open', willOpen);
+    }
+    ['click','touchstart'].forEach(function(evt){
+      toggle.addEventListener(evt, function(e){ e.preventDefault(); e.stopPropagation(); openClose(); }, {passive:false});
+    });
+    // Close on outside click
+    document.addEventListener('click', function(e){
+      if(!links.classList.contains('open')) return;
+      if(!links.contains(e.target) && e.target!==toggle) openClose(false);
+    });
+    // Close on ESC
+    document.addEventListener('keydown', function(e){
+      if(e.key==='Escape') openClose(false);
+    });
+    // Close when a link is clicked
+    links.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){ openClose(false); });
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bind);
+  } else {
+    bind();
+  }
+})();
+
+
+/* == Normalize non-breaking spaces in titles (v11) == */
+(function normalizeNbsp(){
+  function run(){
+    var sels = '.event-card h1, .event-card h2, .event-card h3, .card h1, .card h2, .card h3';
+    document.querySelectorAll(sels).forEach(function(el){
+      // Replace &nbsp; (HTML) and \u00A0 (unicode) with normal spaces so words can wrap
+      el.innerHTML = el.innerHTML.replace(/&nbsp;|\u00A0/g, ' ');
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', run);
+  } else {
+    run();
+  }
+})();
+
+
+/* == Normalize NBSP globally for headings (v12) == */
+(function normalizeHeadingNbsp(){
+  function run(){
+    var sels = 'h1, h2, h3, .hero h1, .hero h2, .hero h3, .banner-text h1, .banner-text h2, .banner-text h3';
+    document.querySelectorAll(sels).forEach(function(el){
+      el.innerHTML = el.innerHTML.replace(/&nbsp;| /g, ' ');
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', run);
+  } else {
+    run();
+  }
+})();
