@@ -1,0 +1,1598 @@
+/* Root theme variables */
+/*
+ * Colour palette
+ *
+ * The house colours are a deep forest green paired with a warm mustard yellow.
+ * To lighten the overall feel of the site and move away from pure black,
+ * these variables shift the backgrounds toward green while keeping the
+ * typography legible.  Should you wish to tweak the palette further, adjust
+ * these values and the rest of the stylesheet will follow suit.
+ */
+:root {
+  /* Slightly lighter dark green for the page background.
+   * The original site used a very deep forest hue which could feel heavy.
+   * Lifting the base colour a notch helps the velvet texture read more
+   * clearly while still retaining a rich, moody atmosphere. */
+  /* Lighten the base background colour slightly so the velvet pattern feels more inviting. */
+  --background: #0f4533;
+  /* Lighten the surface panels in tandem with the background for consistency. */
+  --surface: #215c40;
+  /* Primary text colour: soft beige on green */
+  --text: #e6e1d4;
+  /* Mustard accent used for highlights */
+  --accent: #c8a04b;
+  /* Lighter variant of the accent for secondary headings */
+  --accent-light: #dabb63;
+  /* Typography */
+  --font-heading: 'Cinzel', serif;
+  --font-body: 'Lato', sans-serif;
+}
+
+/* Global styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+  /* Add subtle texture to the site background using a tiling dark green texture. */
+  /* Replace the old green texture with a velvet fabric tile and darken it
+     by blending with the page background colour.  The tile repeats seamlessly
+     regardless of screen dimensions so there are no obvious seams. */
+  background-image: url('velvet_texture.jpg');
+  background-repeat: repeat;
+  background-size: 600px 600px;
+  background-color: var(--background);
+  background-blend-mode: multiply;
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  margin-top: 0;
+  color: var(--accent);
+}
+
+h1 {
+  font-size: 3rem;
+  letter-spacing: 2px;
+}
+
+h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent-light);
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+/* Navigation */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  /* A translucent forest green bar with a subtle blur */
+  background: rgba(9, 36, 24, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(200, 160, 75, 0.15);
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+}
+
+.logo span {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: var(--accent);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  padding: 0.25rem 0;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* underline animation for nav links */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Hero section */
+/*
+ * Hero section
+ *
+ * Shrink the hero further so that visitors get an immediate glimpse of
+ * the content below the fold.  On very wide screens this height
+ * adjustment reduces blank space and makes the banner feel less
+ * dominating.  The background image and overlay stay the same.
+ */
+/* Reduce the hero height further so the landing area feels less tall. */
+.hero {
+  height: 60vh;
+  background-image: url('gang.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--text);
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(13,13,16,0.6) 0%, rgba(13,13,16,0.9) 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  padding: 0 1rem;
+}
+
+.hero h1 {
+  margin-bottom: 0.5rem;
+  font-size: 3.5rem;
+  color: var(--accent-light);
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--accent);
+  color: var(--background);
+}
+
+/* Section styles */
+.section {
+  padding: 4rem 0;
+}
+
+/*
+ * Section container backgrounds
+ *
+ * Give each section (except the hero and Marcus highlight) a subtle
+ * translucent panel so that text stands out against the deep green page.
+ */
+section:not(.hero):not(.marcus-section) > .container {
+  /* Increase opacity to make text panels pop against the page background */
+  background: rgba(22, 70, 46, 0.85);
+  padding: 2.5rem;
+  border-radius: 10px;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.6);
+}
+
+.events-grid, .members-grid, .gallery-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.events-grid {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin-top: 2rem;
+  /* Center the event cards horizontally within the grid.  This prevents the
+     first row from hugging the left edge when there are only one or two events. */
+  justify-content: center;
+}
+
+.event-card {
+  background: rgba(17, 55, 42, 0.85);
+  border: 1px solid rgba(200, 160, 75, 0.25);
+  padding: 0.75rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+}
+
+.event-card h3 {
+  margin-top: 0;
+  font-size: 1.6rem;
+  color: var(--accent-light);
+  /* Prevent event titles from wrapping onto multiple lines */
+  white-space: nowrap;
+}
+
+.event-date {
+  font-weight: bold;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+/* Reduce font size for event descriptions */
+.event-card p {
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+/* Style action links inside event cards to look like elegant buttons */
+.event-card a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.event-card a:hover {
+  background: var(--accent);
+  color: var(--background);
+}
+
+/* About section */
+.about-section {
+  background: var(--surface);
+  border-top: 1px solid rgba(200, 160, 75, 0.15);
+  border-bottom: 1px solid rgba(200, 160, 75, 0.15);
+}
+
+.about-text {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-text blockquote {
+  /* Give the quote a parchment feel.  Use a textured image behind the text and
+   * remove the solid border.  Colours are slightly darker to contrast with
+   * the lighter paper.  */
+  margin: 0 auto 1.5rem;
+  padding: 1.5rem 2rem;
+  background-image: url('parchment.png');
+  background-size: cover;
+  background-position: center;
+  border: none;
+  border-radius: 6px;
+  font-style: italic;
+  color: #352916;
+}
+
+.about-text cite {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  /* Darker ink colour for the parchment citation */
+  color: #5a4224;
+}
+
+/* Members section */
+.members-grid {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin-top: 2rem;
+}
+
+/* Category group for members
+ * Each set of members (active, retired, fallen) is wrapped in a
+ * .members-category element with its own title.  The title sits
+ * above its grid and provides additional hierarchy. */
+.members-category {
+  margin-top: 3rem;
+}
+
+.members-category:first-of-type {
+  margin-top: 2rem;
+}
+
+.members-category-title {
+  margin: 0;
+  color: var(--accent-light);
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  text-align: left;
+  padding-left: 0.25rem;
+  border-left: 4px solid var(--accent);
+}
+
+.member-card {
+  background: var(--surface);
+  border: 1px solid rgba(200, 160, 75, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.member-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+}
+
+/* Overlay shown on hover to encourage interaction */
+.member-card .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(17, 55, 42, 0.75);
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.member-card:hover .overlay {
+  opacity: 1;
+}
+
+/* Category ribbons for retired and dead members */
+.member-card[data-category="retired"]::after,
+.member-card[data-category="dead"]::after {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.member-card[data-category="retired"]::after {
+  content: attr(data-status);
+  background: rgba(125, 125, 125, 0.8);
+  color: var(--background);
+}
+
+.member-card[data-category="dead"]::after {
+  content: attr(data-status);
+  background: rgba(140, 42, 42, 0.85);
+  color: var(--background);
+}
+
+.member-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+/* Lighten the generic placeholder images so the silhouette is easier to discern.  
+   Target any <img> whose source contains "placeholder". */
+.member-card img[src*="placeholder"] {
+  filter: brightness(1.6);
+}
+
+.member-card h3 {
+  margin: 0.75rem 0 0.25rem;
+}
+
+.member-card .role {
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+/* History section */
+.history-section p {
+  max-width: 900px;
+  margin: 0 auto 1rem;
+  text-align: center;
+}
+
+/* Events section adjustments
+ *
+ * The upcoming events section should feel less dominant on the page.  We
+ * constrain the width of the events container and tighten up the grid so
+ * it reads more like a sidebar or digest of upcoming dates rather than
+ * a full‑width callout.  On very narrow screens it will still stack
+ * gracefully. */
+.events-section .container {
+  /* Override the base .container width constraints for the events panel.
+   * Increase the width to ensure all event cards can sit on one line on
+   * larger screens while still scaling down on mobile.  */
+  max-width: 1000px !important;
+  width: 100%;
+}
+
+/* Events grid uses flexbox so all cards sit neatly on one row when possible */
+.events-grid {
+  display: flex;
+  /* allow wrapping on small screens but keep all cards on one row
+   * when there is sufficient horizontal space. */
+  flex-wrap: wrap;
+  /* Centre event cards within the available space. */
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/*
+ * Force each event card to occupy exactly one quarter of the events
+ * container on large screens.  The subtraction accounts for the gap
+ * spacing so all four cards remain on a single row.  On medium and
+ * small screens the cards will stack to two or one per row respectively.
+ */
+.events-grid .event-card {
+  flex: 0 0 calc(25% - 1.5rem);
+  /* ensure consistent height for all cards */
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 900px) {
+  .events-grid .event-card {
+    flex: 0 0 calc(50% - 1.5rem);
+  }
+}
+
+@media (max-width: 550px) {
+  .events-grid .event-card {
+    flex: 0 0 100%;
+  }
+}
+
+/* Gallery */
+.gallery-grid {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin-top: 2rem;
+}
+
+.gallery-grid img {
+  display: block;
+}
+
+/* Gallery item wrapper
+ * Each image is wrapped in a .gallery-item so that we can overlay a
+ * “View” label on hover. */
+.gallery-item {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(200, 160, 75, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-item .gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(17, 55, 42, 0.75);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+/* Marcus highlight section */
+.marcus-section {
+  background: var(--surface);
+  border-top: 1px solid rgba(200, 160, 75, 0.15);
+  border-bottom: 1px solid rgba(200, 160, 75, 0.15);
+}
+
+.marcus-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.marcus-text {
+  flex: 1 1 300px;
+  max-width: 600px;
+  text-align: center;
+}
+
+.marcus-text h2 {
+  font-size: 2.5rem;
+  color: var(--accent-light);
+  margin-bottom: 0.25rem;
+}
+
+.marcus-text h3 {
+  font-size: 1.5rem;
+  color: var(--accent);
+  margin-top: 0;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.marcus-text p {
+  font-size: 1.1rem;
+}
+
+.marcus-image {
+  flex: 1 1 300px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.marcus-image::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle at center, rgba(200, 160, 75, 0.5) 0%, rgba(200, 160, 75, 0.05) 60%, transparent 100%);
+  filter: blur(60px);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.marcus-image img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
+
+/* Footer */
+.footer {
+  background: var(--surface);
+  border-top: 1px solid rgba(200, 160, 75, 0.15);
+  padding: 3rem 0;
+}
+
+/* Footer layout
+ *
+ * Consolidate several informational panels (join, contact, new to Anvil,
+ * quick links) into a flexible footer grid.  On larger screens the
+ * columns sit side by side; on smaller screens they stack neatly.
+ */
+.footer-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+/* Footer columns
+ * Each column contains join, contact, new to Anvil and quick links content.  Give
+ * them a subtle card-like background and border to set them apart from the
+ * footer’s base panel and to echo the design of the event and member cards.
+ */
+.footer-column {
+  flex: 1 1 200px;
+  background: rgba(17, 55, 42, 0.85);
+  border: 1px solid rgba(200, 160, 75, 0.15);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.footer-column h3 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent-light);
+}
+
+.footer-column p {
+  margin-bottom: 0.75rem;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.footer-column li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-column a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  color: var(--accent-light);
+  margin-top: 1rem;
+}
+
+/* Additional section lists */
+.contact-list,
+.new-list,
+.links-list,
+.ingredients-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.contact-list li,
+.new-list li,
+.links-list li,
+.ingredients-list li {
+  margin-bottom: 0.5rem;
+}
+
+.ingredients-list li::before {
+  content: "\2022"; /* bullet point */
+  color: var(--accent);
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+.instructions-list {
+  margin-left: 1rem;
+}
+.instructions-list li {
+  margin-bottom: 0.5rem;
+}
+
+.footer p {
+  margin: 0;
+  color: var(--accent-light);
+}
+
+/*
+ * Member modal overlay
+ *
+ * When a member card is clicked the page displays a modal with more
+ * information and a larger portrait.  The `.hidden` class toggles
+ * visibility via JavaScript.
+ */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: var(--surface);
+  border: 1px solid rgba(200, 160, 75, 0.3);
+  border-radius: 8px;
+  max-width: 800px;
+  max-height: 90vh;      /* cap to viewport */
+  overflow-y: auto;      /* enable internal scroll */
+  overscroll-behavior: contain;
+  width: 90%;
+  padding: 1rem;
+  position: relative;
+  text-align: center;
+}
+
+.modal-content img {
+  /* Center the portrait within the modal and preserve its aspect ratio.  Do
+   * not force it to fill the entire modal width; instead cap its size
+   * with max‑height and max‑width and use automatic sizing.  */
+  display: block;
+  width: auto;
+  max-width: 60%;
+  max-height: 60vh;
+  height: auto;
+  margin: 0 auto 1rem;
+margin-bottom: 0.75rem; 
+  border-radius: 8px;
+}
+
+.modal-content h3 {
+  margin-bottom: 0.25rem;
+  color: var(--accent-light);
+}
+
+.modal-content h4 {
+  margin-top: 0;
+  margin-bottom: 0.25rem;
+  color: var(--accent);
+  font-size: 1.2rem;
+}
+
+.modal-content p {
+  margin-bottom: 1rem;       /* slightly less spacing between text blocks */
+  line-height: 1.4;
+}
+
+/* Structure the member modal with clearly separated sections */
+.modal-section {
+  margin-bottom: 1rem;
+}
+.modal-section strong {
+  color: var(--accent);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+/* Navigation arrows inside the member modal */
+.member-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: var(--accent-light);
+  cursor: pointer;
+  z-index: 5;
+  user-select: none;
+  padding: 0 0.5rem;
+}
+.member-prev {
+  left: 0.5rem;
+}
+.member-next {
+  right: 0.5rem;
+}
+.member-nav:hover {
+  color: var(--accent);
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  font-size: 1.5rem;
+  color: var(--accent);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+  color: var(--accent-light);
+}
+
+/*
+ * Gallery lightbox styles
+ *
+ * Clicking on a gallery image opens this modal with navigation arrows
+ * allowing the user to cycle through photos.  The implementation is
+ * analogous to the member modal but with next/prev controls and
+ * captions.
+ */
+.gallery-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.gallery-modal.hidden {
+  display: none;
+}
+
+.gallery-modal-content {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid rgba(200, 160, 75, 0.3);
+  border-radius: 8px;
+  padding: 1.5rem;
+  max-width: 800px;
+  width: 90%;
+  text-align: center;
+}
+
+.gallery-modal-content img {
+  width: 100%;
+  max-height: 60vh;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.gallery-caption {
+  margin-top: 1rem;
+  color: var(--accent-light);
+}
+
+.gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--accent);
+  cursor: pointer;
+  user-select: none;
+  padding: 0 1rem;
+}
+
+.gallery-prev {
+  left: 0;
+}
+
+.gallery-next {
+  right: 0;
+}
+
+.gallery-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  font-size: 1.5rem;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.gallery-close:hover {
+  color: var(--accent-light);
+}
+
+/* Carousel styles for the gallery */
+.carousel {
+  position: relative;
+  overflow: hidden;
+  margin-top: 2rem;
+  border-radius: 8px;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-slide {
+  flex-shrink: 0;
+  min-width: 100%;
+  height: 400px;
+}
+
+.carousel-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: var(--surface);
+  border-radius: 6px;
+}
+
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(9, 36, 24, 0.7);
+  color: var(--accent-light);
+  border: none;
+  font-size: 2rem;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  z-index: 1;
+  line-height: 1;
+}
+
+.carousel-prev {
+  left: 0.5rem;
+}
+
+.carousel-next {
+  right: 0.5rem;
+}
+
+.carousel-nav:hover {
+  background: rgba(9, 36, 24, 0.9);
+}
+
+/* Footer styling */
+.footer {
+  background: rgba(9, 36, 24, 0.95);
+  padding: 3rem 0 2rem;
+  margin-top: 4rem;
+}
+
+/* Use CSS Grid for the footer so that the join column can span two columns and the remaining
+   columns can stack neatly.  Each column will take up available space with a minimum width
+   to prevent squishing on smaller screens. */
+/* The footer uses a two‑column grid on wide screens.  The left column is twice as wide
+   and contains the Join House Crossland box which spans multiple rows.  The right
+   column holds the remaining footer boxes stacked vertically. */
+/* Build a flexible grid for the footer.  The layout uses auto‑fitting
+   columns so the panels reflow gracefully as the viewport changes.  On
+   larger screens there will typically be two columns; on smaller
+   widths the panels stack. */
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Base styling for footer columns now used within a CSS grid.  
+   min-width ensures items don’t shrink too small. */
+/* Base styling for footer columns.  Allow them to grow and shrink within the grid. */
+.footer-column {
+  min-width: 0;
+}
+
+.footer-column h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: var(--accent-light);
+}
+
+/* Improve readability of footer text by spacing paragraphs */
+.footer-column p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+/* Ensure list items inside the footer match the body text colour */
+.footer-column li {
+  color: var(--text);
+}
+
+/* Allow the first footer column (join) to occupy more space on wide screens */
+/* Allow the first footer column to occupy more space relative to the others.  The flex-basis of 0 ensures the ratio is respected even when space is distributed evenly. */
+/* The join column spans two grid tracks on wider screens, giving it a double width. */
+/* The join column occupies the left column and spans all rows in the grid */
+/* A column with the `full` class will span across both grid columns,
+   ensuring it takes up the entire width of the footer row.  This is
+   useful for panels that contain more content such as the Join or
+   Quick Links sections. */
+.footer-column.full {
+  grid-column: span 2;
+}
+
+@media (max-width: 900px) {
+  /* When the viewport is narrow, the auto‑fit grid will fall back to a
+     single column.  Ensure full‑width panels do not specify a span
+     greater than the available columns. */
+  .footer-column.full {
+    grid-column: span 1;
+  }
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.footer-list li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-list a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.footer-list a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: var(--accent-light);
+}
+
+/* ---------------------------------------------------------------------- */
+/* Additional styling rules for history quotes, soup Easter egg, and
+   responsive adjustments.  These rules are appended to the bottom of
+   the stylesheet to override earlier declarations where necessary. */
+
+/* Centre history subheadings and add extra spacing */
+.history-section h3 {
+  text-align: center;
+  margin-top: 2rem;
+  /* Indicate that history subheadings are interactive.  A pointer cursor
+     encourages the user to click, and additional right padding gives
+     space for the expand/collapse arrow added via the ::after pseudo
+     element. */
+  cursor: pointer;
+  position: relative;
+  padding-right: 1.5rem;
+}
+
+/* Add an arrow indicator to collapsible history headers.  The arrow
+   rotates when the section is open (via the `.open` class applied on
+   the heading). */
+.history-section h3::after {
+  content: '\25BC';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+  transition: transform 0.3s ease;
+  font-size: 1rem;
+  /* Use the lighter accent for better contrast against the dark headings */
+  color: var(--accent-light);
+}
+.history-section h3.open::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* Wrap paragraphs for each history subheading in a collapsible container
+   so that they can smoothly expand and collapse.  These containers
+   will be injected dynamically via JavaScript. */
+.history-content {
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+/* Apply parchment styling to history quotes */
+.history-section .quote-wrapper {
+  /* Centre the history quote and limit its width so it sits comfortably on
+     the page.  Use the parchment texture for background and remove any
+     default margins from the surrounding content. */
+  margin: 0 auto 1.5rem;
+  max-width: 700px;
+  padding: 1.5rem 2rem;
+  text-align: center;
+  background-image: url('parchment.png');
+  background-size: cover;
+  background-position: center;
+  border: none;
+  border-radius: 6px;
+  font-style: italic;
+  color: #352916;
+}
+
+/* Soup modal.  Initially hidden; when activated via script the .active class
+   will switch it to flex layout so the content is centred on screen. */
+#soup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+  overflow-y: auto;
+  padding: 2rem;
+}
+
+#soup.active {
+  display: flex;
+}
+
+/* Inner content container for the soup modal */
+.soup-content {
+  background: var(--surface);
+  border: 1px solid rgba(200, 160, 75, 0.3);
+  border-radius: 8px;
+  max-width: 600px;
+  width: 100%;
+  padding: 2rem;
+  position: relative;
+  color: var(--text);
+  /* Constrain the modal height so it remains fully visible on
+     smaller screens.  When the content exceeds this height the
+     container will scroll internally. */
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.soup-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  font-size: 1.5rem;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.soup-close:hover {
+  color: var(--accent-light);
+}
+
+/* Style the hidden easter egg button so it is unobtrusive on the page */
+#soup-toggle {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  opacity: 0.05;
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  z-index: 1000;
+  transition: opacity 0.3s;
+}
+
+#soup-toggle:hover {
+  opacity: 0.4;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  /* Wrap nav items and centre them */
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  nav li {
+    margin: 0.25rem 0.5rem;
+  }
+
+  /* Stack member cards in one column on narrow screens */
+  .members-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Stack event cards vertically */
+  .events-grid {
+    flex-direction: column;
+  }
+  .events-grid .event-card {
+    margin-bottom: 1rem;
+  }
+
+  /* Stack footer columns on narrow screens by using a single column grid */
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .footer-column {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+}
+
+/* ---------------------------------------------------------------------- */
+/* Additional styles for gala enhancements and floating call‑to‑actions. */
+
+/* Floating call‑to‑action buttons for index and gala pages */
+.gala-cta,
+.cta-float {
+  position: fixed;
+  right: 1rem;
+  /* Place the gala CTA a bit above the soup toggle on the index page */
+  bottom: 5rem;
+  background: var(--accent);
+  color: var(--background);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+  opacity: 0.85;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1500;
+}
+.gala-cta:hover,
+.cta-float:hover {
+  opacity: 1;
+  transform: translateY(-3px);
+}
+/* Specific placement for the floating sign‑up button on the gala page */
+#signup-float {
+  right: 1rem;
+  bottom: 6rem;
+}
+
+/* Section placeholder images in the gala page */
+.section-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  object-fit: cover;
+  background-color: rgba(17,55,42,0.6);
+}
+
+/* Menu toggle styles for the gala page */
+.menu-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.menu-tab {
+  background: rgba(22, 70, 46, 0.85);
+  border: 1px solid rgba(200, 160, 75, 0.3);
+  color: var(--accent-light);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  /* Use the body font for menu tabs so they harmonise with other buttons on the site */
+  font-family: var(--font-body);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.menu-tab.active {
+  background: var(--accent);
+  color: var(--background);
+}
+.menu-content {
+  display: none;
+  padding-left: 0;
+}
+.menu-content.active {
+  display: block;
+}
+
+/* Style the quote-wrapper on the gala page like the parchment quotes on the index page */
+.quote-wrapper {
+  margin: 1.5rem auto;
+  padding: 1.5rem 2rem;
+  background-image: url('parchment.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 6px;
+  font-style: italic;
+  color: #352916;
+  max-width: 600px;
+}
+.quote-wrapper cite {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #5a4224;
+}
+
+
+/* == Responsive Fixes BEGIN == */
+:root {
+  --nav-height: 64px;
+  --brand-gold: #D4A94E; /* fallback if your theme doesn't already set this */
+}
+* { box-sizing: border-box; }
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+img, video, canvas { max-width: 100%; height: auto; }
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  position: relative;
+  min-height: var(--nav-height);
+  width: 100%;
+  z-index: 1000;
+}
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+#nav-toggle {
+  display: none;
+  appearance: none;
+  border: 2px solid var(--brand-gold);
+  background: rgba(0,0,0,0.25);
+  color: var(--brand-gold);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  width: 44px; height: 44px;
+  border-radius: 8px;
+  align-items: center; justify-content: center;
+}
+#nav-toggle:focus-visible {
+  outline: 3px solid var(--brand-gold);
+  outline-offset: 2px;
+}
+
+/* HERO */
+.hero, .hero-section {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.hero * { max-width: 100%; }
+.hero h1, .hero .title {
+  margin: 0;
+  line-height: 1.1;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  font-size: clamp(1.6rem, 6vw, 3rem);
+}
+.hero p { font-size: clamp(1rem, 3.5vw, 1.25rem); }
+
+/* CARDS & GRIDS */
+.cards, .card-grid, .members-grid, .events-grid, .section-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  width: 100%;
+}
+.card, .member-card, .event-card { min-width: 0; }
+
+/* General containers */
+.container, .wrapper, main, section { max-width: 100%; }
+
+@media (max-width: 900px) {
+  .nav-links {
+    position: fixed;
+    top: var(--nav-height);
+    left: 0; right: 0;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    background: rgba(0,0,0,0.95);
+    backdrop-filter: saturate(120%) blur(4px);
+    padding: .5rem 0;
+    z-index: 3200;
+    max-height: calc(100vh - var(--nav-height));
+    overflow-y: auto;
+  }
+  .nav-links.open { display: flex; }
+  #nav-toggle { display: inline-flex; }
+  .nav-links, .nav-links ul { list-style: none; margin: 0; padding: 0; }
+  .nav-links li { width: 100%; }
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 1rem 1.25rem;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-links a:last-child { border-bottom: none; }
+  body.menu-open { overflow: hidden; }
+}
+  .hero .content, .hero-content, .banner-text { padding: 0 1rem; }
+}
+/* == Responsive Fixes END == */
+
+
+
+/* Small helper to keep hamburger aligned neatly on the right if needed */
+@media (max-width: 900px) {
+  .nav-container { gap: .5rem; }
+  nav { display: block; }
+  #nav-toggle { margin-left: auto; }
+}
+
+
+/* == Mobile Nav Clickability Patch == */
+nav { position: relative; z-index: 3000; } /* keep nav above hero without changing its layout */
+#nav-toggle { position: relative; z-index: 3500; pointer-events: auto; }
+@media (max-width: 900px) {
+  .hero, .hero-section { position: relative; z-index: 1; } /* ensure hero never overlays nav */
+  .nav-links { z-index: 3200; }
+}
+
+@media (max-width: 900px){
+  /* == Force hidden closed menu == */
+  .nav-links:not(.open){ display: none !important; }
+}
+
+/* == Desktop nav list reset == */
+.nav-links, .nav-links ul { list-style: none; margin: 0; padding: 0; }
+.nav-links li { margin: 0; padding: 0; }
+
+
+/* == Green & Gold Mobile Menu == */
+@media (max-width: 900px){
+  .nav-links {
+    background: #0b2d1a; /* rich green backdrop */
+    color: #d4a94e; /* gold text */
+  }
+  .nav-links a {
+    color: #d4a94e;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .nav-links a:hover,
+  .nav-links a:focus {
+    background: rgba(212,169,78,0.15);
+  }
+}
+
+/* == Event Card Text Overflow Fix == */
+.event-card, .card {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+.event-card h3, .card h3, .event-card p, .card p {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+  max-width: 100%;
+}
+
+
+/* == Whole-word wrapping for event and card text == */
+.event-card h1, .event-card h2, .event-card h3,
+.card h1, .card h2, .card h3,
+.event-card p, .card p,
+.event-card .card-title, .card .card-title {
+  word-break: normal;          /* don't break inside words */
+  overflow-wrap: break-word;   /* move whole word to next line if needed */
+  hyphens: none;               /* avoid auto hyphenation */
+  white-space: normal;
+}
+
+/* == Prevent mid-word breaks completely (v9) == */
+.event-card h1, .event-card h2, .event-card h3,
+.card h1, .card h2, .card h3 {
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  hyphens: none;
+}
+
+
+/* == Event title wrap & unclipping (v10) == */
+.event-card h1, .event-card h2, .event-card h3,
+.card h1, .card h2, .card h3 {
+  display: block;
+  white-space: normal !important;  /* allow wrapping */
+  word-break: keep-all;            /* wrap only at word boundaries */
+  overflow-wrap: normal;           /* don't force mid-word breaks */
+  hyphens: none;
+  overflow: visible;               /* don't clip the text */
+}
+
+.event-card, .card {
+  /* let height expand; don't clip children text */
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Ensure headings respect container width */
+.event-card h1, .event-card h2, .event-card h3,
+.card h1, .card h2, .card h3 {
+  max-width: 100%;
+}
+
+
+/* == Gala page heading wrap (v12) == */
+.gala-hero h1, .gala-hero h2, .gala-hero h3,
+.gala-section h1, .gala-section h2, .gala-section h3,
+main h1, main h2, main h3 {
+  white-space: normal !important;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  hyphens: none;
+  max-width: 100%;
+  overflow: visible;
+}
