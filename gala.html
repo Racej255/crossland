@@ -3,6 +3,10 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="styles.css?v=20251010">
+<script src="script.js?v=20251010" defer></script>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Grand Crossland Gala – House Crossland</title>
 <!-- Use the same Google fonts and stylesheet as the main site -->
@@ -12,26 +16,30 @@
 <body>
 <!-- Navigation bar with a Home link back to the main page -->
 <header class="navbar">
-<div class="container nav-container">
-<div class="logo">
-<img alt="House Crossland Emblem" src="house_emblem.png"/>
-<span>House Crossland</span>
-</div>
-<nav>
-<button aria-expanded="false" aria-label="Toggle navigation" id="nav-toggle">☰</button><ul class="nav-links">
-<li><a href="index.html">Home</a></li>
-<li><a href="index.html#events">Events</a></li>
-<li><a href="index.html#about">About</a></li>
-<li><a href="index.html#members">Members</a></li>
-<li><a href="index.html#history">History</a></li>
-<li><a href="index.html#gallery">Gallery</a></li>
-<!-- Present a direct link to the gala page even when already here.  It can act as a current page indicator. -->
-<li><a href="gala.html">Gala</a></li>
-<li><a href="index.html#join">Join</a></li>
-</ul>
-</nav>
-</div>
+  <div class="container nav-container">
+    <div class="logo">
+      <img src="house_emblem.png" alt="House Crossland Emblem">
+      <span>House Crossland</span>
+    </div>
+
+    <!-- Hamburger button -->
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+
+    <!-- Collapsible menu -->
+    <nav class="nav-menu">
+      <ul>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#members">Members</a></li>
+        <li><a href="#history">History</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="gala.html">Gala</a></li>
+        <li><a href="#join">Join</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
+
 <!-- Gala hero section -->
 <!-- Use the same background image as the index page (camp.png) to keep branding consistent. -->
 <section class="hero hero-section" style="background-image: url('Gala.jpg'); height: 50vh;">
