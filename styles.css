@@ -1694,3 +1694,6 @@ main h1, main h2, main h3 {
   max-width: 100%;
   overflow: visible;
 }
+
+/* --- Kill legacy mobile menu rules safely --- */
+.nav-links, #nav-toggle { display: none !important; }
