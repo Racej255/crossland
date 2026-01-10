@@ -1596,3 +1596,420 @@ main h1, main h2, main h3 {
   max-width: 100%;
   overflow: visible;
 }
+
+/* == Schedule list styling for gala-attendees page == */
+.schedule-list {
+  list-style: none;
+  padding-left: 0;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.schedule-list li {
+  margin-bottom: 1.5rem;
+  padding-left: 4rem;
+  position: relative;
+  line-height: 1.6;
+  min-height: 2rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+.schedule-list li strong {
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-family: var(--font-body);
+  font-weight: 700;
+  min-width: 3.5rem;
+  display: inline-block;
+}
+
+/* == FAQ section styling == */
+.faq-section {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(200, 160, 75, 0.2);
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-item h3 {
+  margin-bottom: 0.75rem;
+  color: var(--accent-light);
+  font-size: 1.3rem;
+}
+
+.faq-item p {
+  margin-bottom: 0;
+  line-height: 1.7;
+}
+
+/* == Character table styling == */
+.character-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(17, 55, 42, 0.85);
+  border: 1px solid rgba(200, 160, 75, 0.25);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.character-table thead {
+  background: rgba(22, 70, 46, 0.95);
+}
+
+.character-table th {
+  padding: 1rem;
+  text-align: left;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--accent-light);
+  border-bottom: 2px solid rgba(200, 160, 75, 0.3);
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+.character-table th:hover {
+  background: rgba(200, 160, 75, 0.1);
+}
+
+.character-table th.sortable {
+  padding-right: 2rem;
+}
+
+.character-table th .sort-indicator {
+  position: absolute;
+  right: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+
+.character-table th.sort-asc .sort-indicator::before {
+  content: '▲';
+  color: var(--accent-light);
+}
+
+.character-table th.sort-desc .sort-indicator::before {
+  content: '▼';
+  color: var(--accent-light);
+}
+
+.character-table tbody tr {
+  border-bottom: 1px solid rgba(200, 160, 75, 0.15);
+  transition: background 0.2s ease;
+}
+
+.character-table tbody tr:hover {
+  background: rgba(200, 160, 75, 0.1);
+}
+
+.character-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.character-table td {
+  padding: 0.75rem 1rem;
+  color: var(--text);
+  vertical-align: top;
+}
+
+.character-table td:first-child {
+  font-weight: 600;
+  color: var(--accent-light);
+}
+
+/* Mobile table notice - hidden on desktop */
+.mobile-table-notice {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-table-notice {
+    display: block;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--text-muted);
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    background: rgba(17, 55, 42, 0.4);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+  }
+  
+  .mobile-table-notice a {
+    color: var(--accent) !important;
+    font-weight: 600;
+  }
+  
+  .mobile-table-notice a:hover {
+    color: var(--accent-light) !important;
+  }
+  
+  .character-table {
+    font-size: 0.9rem;
+  }
+  
+  .character-table th,
+  .character-table td {
+    padding: 0.5rem;
+    white-space: nowrap;
+    min-width: 120px;
+  }
+  
+  #character-table-container {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+    max-width: 100%;
+    width: 100%;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) rgba(17, 55, 42, 0.5);
+  }
+  
+  #character-table-container::-webkit-scrollbar {
+    height: 10px;
+  }
+  
+  #character-table-container::-webkit-scrollbar-track {
+    background: rgba(17, 55, 42, 0.5);
+    border-radius: 5px;
+  }
+  
+  #character-table-container::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 5px;
+  }
+  
+  #character-table-container::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-light);
+  }
+}
+
+@media (min-width: 769px) {
+  .table-maximize-btn {
+    display: none !important;
+  }
+  
+  .character-table-modal {
+    display: none !important;
+  }
+}
+
+/* == Quick Jump Navigation == */
+.quick-jump-section {
+  padding: 1rem 0 0 0;
+  margin-bottom: -2rem;
+}
+
+.quick-jump-section > .container {
+  background: transparent !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+.quick-jump-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin: 0;
+}
+
+.btn-jump {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(200, 160, 75, 0.4);
+  color: var(--accent-light);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  font-family: var(--font-body);
+  background: transparent;
+}
+
+.btn-jump:hover {
+  background: rgba(200, 160, 75, 0.15);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* == Timeline styling for schedule section == */
+.timeline-container {
+  --timeline-axis: 20px;
+  max-width: 900px;
+  margin: 2rem auto;
+  position: relative;
+  padding-left: 0;
+}
+
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  left: var(--timeline-axis);
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--accent), var(--accent-light));
+  border-radius: 2px;
+  margin-left: -1.5px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 1.5rem;
+  padding-left: calc(var(--timeline-axis) + 30px);
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: var(--timeline-axis);
+  top: 50%;
+  margin-left: -8px;
+  margin-top: -8px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--background);
+  box-shadow: 0 0 0 2px var(--accent);
+  z-index: 2;
+}
+
+.timeline-entry {
+  background: rgba(17, 55, 42, 0.6);
+  border: 1px solid rgba(200, 160, 75, 0.2);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 2rem;
+}
+
+.timeline-time {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent);
+  display: inline-block;
+  min-width: 4rem;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+.timeline-text {
+  display: inline-block;
+  color: var(--text);
+  line-height: 1.6;
+  vertical-align: middle;
+  flex: 1;
+}
+
+/* == Collapsible content styling == */
+.collapsible-content {
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  max-height: 0;
+}
+
+.collapsible-content.open {
+  opacity: 1;
+  max-height: 3000px;
+  margin-top: 1rem;
+}
+
+.collapse-toggle {
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.collapse-toggle:hover {
+  background: var(--accent);
+  color: var(--background);
+}
+
+/* == Phone and Email link styling == */
+a[href^="tel:"],
+a[href^="mailto:"] {
+  color: var(--accent) !important;
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(200, 160, 75, 0.3);
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+a[href^="tel:"]:hover,
+a[href^="mailto:"]:hover {
+  color: var(--accent-light) !important;
+  border-bottom-color: var(--accent);
+}
+
+/* == Maps container styling == */
+.maps-container {
+  margin: 2rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.maps-container iframe {
+  display: block;
+}
+
+/* == Parking info styling == */
+.parking-info img {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.parking-info ul {
+  margin-top: 1rem;
+  padding-left: 1.5rem;
+}
+
+.parking-info li {
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .quick-jump-buttons {
+    gap: 0.5rem;
+  }
+  
+  .btn-jump {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.85rem;
+  }
+  
+  .timeline-container {
+    --timeline-axis: 16px;
+  }
+  
+  .timeline-item {
+    padding-left: calc(var(--timeline-axis) + 24px);
+  }
+  
+  .timeline-entry {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .timeline-time {
+    font-size: 1.1rem;
+    min-width: auto;
+  }
+}
