@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     role: 'Second in Command – “Iron Ass”',
     hero: 'members/bron-hero.png',
     thumbnail: 'members/bron.png',
-    location: 'Patrolling the Crossland Territories',
+    location: 'Bel End, Upwold',
     about: 'Bron “Iron Ass” Ashwood is Marcus’s right hand - loyal, tough, and stubborn as they come. He keeps the trade running smooth, from scratch-cards to street deals, and isn’t afraid to get his hands dirty doing it.\nHe’s not the sharpest knife in the drawer, but he’s got charm, muscle, and a knack for keeping people in line.',
     skills: 'Loyalty · Charisma · Muscle · Intimidation',
     category: 'active'
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
     role: 'House Magician – Provider of Shortbread',
     hero: 'members/sadie-hero.png',
     thumbnail: 'members/sadie.png',
-    location: 'Her farm in Upwold',
+    location: 'Bel End, Upwold',
     about: 'Sadie Raine handles the House’s magical business - from charms and potions to the occasional cursebreaker. When she’s not weaving spells, she’s baking shortbread that could probably stop a war.\nQuiet, clever, and always in demand, Sadie keeps Crossland luck on the right side of fortune.',
     skills: 'Enchantment · Potions · Charmcraft · Baking',
     category: 'active'
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
     role: 'Militia Liaison – Cocktail Curator & Herby Guy',
     hero: 'members/kaspian-hero.png',
     thumbnail: 'members/kaspian.png',
-    location: 'Birchland',
+    location: 'Bel End, Upwold',
     about: 'An immigrant from the Brass Coast, Kaspian’s as handy with herbs as he is with a hammer. A skilled healer and cocktail curator, he keeps Crossland fighters on their feet - whether on the battlefield or at the bar.\nThrough his position in the militia, he protects the House in legal matters, and when a scheme or adventure is brewing, Kaspian’s never far behind.',
     skills: 'Healing · Mixology · Combat Support · Legal Savvy',
     category: 'active'
@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
     role: 'Twin Tricksters – Faces of the House',
     hero: 'members/agnesmaybel-hero.png',
     thumbnail: 'members/agnesmaybel.png',
-    location: 'Causing Trouble in Upwold',
+    location: 'Bel End, Upwold',
     about: 'Agnes and Maybel came to the Crosslands together and haven’t stopped causing mischief since. Agnes works at the academy, shaping the next generation of Crossland troublemakers, while Maybel plays the saint - running community projects and convincing the Marches we’re model citizens.\nTwo halves of the same grin, they make chaos look charming.',
     skills: 'Manipulation · Teaching · Deception · Performance',
     category: 'active'
@@ -167,6 +167,28 @@ document.addEventListener('DOMContentLoaded', () => {
     location: 'Between Upwold and Mitwold',
     about: 'Aelfred runs Marcus’s shipments and his own side ventures besides. Quick, clever, and hard to pin down, he’s turned running drugs into running deals - and earned a quiet place in the Steward’s trust.\nWherever profit moves, Aelfred’s already a step ahead.',
     skills: 'Trade · Smuggling · Adaptability · Networking',
+    category: 'active'
+  },
+
+  lucy: {
+    name: 'Lucy Friar',
+    role: 'Tea Lady – Lady of Shallot',
+    hero: 'members/lucy-hero.png',
+    thumbnail: 'members/lucy.png',
+    location: 'Bel End, Upwold',
+    about: 'Lucy keeps the kettle warm, the cups full, and the gossip flowing. She might seem wholesome but behind that innocent exterior is the innards of a gremlin who will eat a whole raw onion faster than anybody else in Anvil.',
+    skills: 'Tea · Hospitality · Gossip',
+    category: 'active'
+  },
+
+  wendy: {
+    name: 'Wendy Barfoot',
+    role: 'Potion Master – Conclave Lover',
+    hero: 'members/wendy-hero.png',
+    thumbnail: 'members/wendy.png',
+    location: 'Bel End, Upwold',
+    about: 'A rare creature among the Crosslands, Wendy Barfoot can listen to Conclave business and remain both awake and interested. She brews the potions, studies her crafts, and insists that most she is absolutely not dodgy, honest.',
+    skills: 'Potions · Crafting · Conclave Business',
     category: 'active'
   },
 
