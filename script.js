@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
     hero: 'members/agnesmaybel-hero.png',
     thumbnail: 'members/agnesmaybel.png',
     location: 'Bel End, Upwold',
-    about: 'Agnes and Maybel came to the Crosslands together and haven’t stopped causing mischief since. Agnes works at the academy, shaping the next generation of Crossland troublemakers, while Maybel plays the saint - running community projects and convincing the Marches we’re model citizens.\nTwo halves of the same grin, they make chaos look charming.',
+    about: 'Agnes and Maybel came to the Crosslands together and haven’t stopped causing mischief since. Agnes works at the academy, shaping the next generation of Crossland troublemakers, while Maybel plays the saint - Matron of Bel End, running community projects, and convincing the Marches we’re model citizens.\nTwo halves of the same grin, they make chaos look charming.',
     skills: 'Manipulation · Teaching · Deception · Performance',
     category: 'active'
   },
