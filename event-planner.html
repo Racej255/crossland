@@ -270,6 +270,7 @@ body.light #cmp-canvases{background:#bbb}
     <label class="tb-label"><input type="checkbox" id="chk-grid" checked> Grid</label>
     <label class="tb-label"><input type="checkbox" id="chk-rulers" checked> Rulers</label>
     <label class="tb-label"><input type="checkbox" id="chk-labels" checked> Labels</label>
+    <label class="tb-label"><input type="checkbox" id="chk-snap" checked> Snap</label>
   </div>
   <div class="tb-group">
     <button class="tb-btn" id="btn-save">💾 Save</button>
@@ -314,7 +315,11 @@ body.light #cmp-canvases{background:#bbb}
         <label>Colour</label>
         <input type="color" id="prop-color">
       </div>
-      <div class="prop-row-2col">
+      <div class="prop-row" id="prop-diameter-row" style="display:none">
+        <label>Diameter (m)</label>
+        <input type="number" id="prop-diameter" min="1" max="500" step="1">
+      </div>
+      <div class="prop-row-2col" id="prop-wh-row">
         <div class="prop-row">
           <label>Width (m)</label>
           <input type="number" id="prop-width" min="1" max="500" step="1">
@@ -496,7 +501,7 @@ function alphaHex(hex,a){
 
 const ITEMS = {
   // ---- TENTS ----
-  'bell-tent':{label:'Bell Tent',cat:'tents',dw:8,dh:8,color:'#d4a96a',
+  'bell-tent':{label:'Bell Tent',cat:'tents',dw:8,dh:8,color:'#d4a96a',circular:true,
     draw(ctx,x,y,w,h,col){
       const cx=x+w/2,cy=y+h/2,r=Math.min(w,h)/2*.95;
       // Shadow
@@ -544,7 +549,7 @@ const ITEMS = {
       });
     }},
 
-  'dome-tent':{label:'Dome Tent',cat:'tents',dw:5,dh:4,color:'#6aab8a',
+  'dome-tent':{label:'Dome Tent',cat:'tents',dw:5,dh:5,color:'#6aab8a',circular:true,
     draw(ctx,x,y,w,h,col){
       const cx=x+w/2,cy=y+h/2;
       ctx.beginPath();ctx.ellipse(cx,cy,w/2*.95,h/2*.95,0,0,Math.PI*2);
@@ -559,7 +564,7 @@ const ITEMS = {
       ctx.stroke();
     }},
 
-  'tipi':{label:'Tipi / Yurt',cat:'tents',dw:7,dh:7,color:'#c8a46e',
+  'tipi':{label:'Tipi / Yurt',cat:'tents',dw:7,dh:7,color:'#c8a46e',circular:true,
     draw(ctx,x,y,w,h,col){
       const cx=x+w/2,cy=y+h/2,r=Math.min(w,h)/2*.9;
       // Base circle
@@ -618,7 +623,7 @@ const ITEMS = {
     }},
 
   // ---- NATURE ----
-  'tree-deciduous':{label:'Tree (Deciduous)',cat:'nature',dw:4,dh:4,color:'#4a7c59',
+  'tree-deciduous':{label:'Tree (Deciduous)',cat:'nature',dw:4,dh:4,color:'#4a7c59',circular:true,
     draw(ctx,x,y,w,h,col){
       const cx=x+w/2,cy=y+h/2,r=Math.min(w,h)/2*.9;
       ctx.beginPath();ctx.arc(cx,cy+2,r*.4,0,Math.PI*2);
@@ -635,7 +640,7 @@ const ITEMS = {
       ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.stroke();
     }},
 
-  'tree-conifer':{label:'Tree (Conifer)',cat:'nature',dw:3,dh:3,color:'#2d6a4f',
+  'tree-conifer':{label:'Tree (Conifer)',cat:'nature',dw:3,dh:3,color:'#2d6a4f',circular:true,
     draw(ctx,x,y,w,h,col){
       const cx=x+w/2,cy=y+h/2,r=Math.min(w,h)/2*.9;
       // Shadow
@@ -654,7 +659,7 @@ const ITEMS = {
       ctx.strokeStyle=darkenHex(col,50);ctx.lineWidth=1;ctx.stroke();
     }},
 
-  'bush':{label:'Bush / Shrub',cat:'nature',dw:3,dh:3,color:'#52b788',
+  'bush':{label:'Bush / Shrub',cat:'nature',dw:3,dh:3,color:'#52b788',circular:true,
     draw(ctx,x,y,w,h,col){
       const cx=x+w/2,cy=y+h/2;
       const blobs=[[0,0,.5],[-.3,-.2,.35],[.3,-.15,.38],[-.25,.25,.32],[.28,.2,.3]];
@@ -766,7 +771,7 @@ const ITEMS = {
       ctx.fillText('WC',x+w/2,y+h*.18);
     }},
 
-  'water-tap':{label:'Water Tap',cat:'facilities',dw:3,dh:3,color:'#48cae4',
+  'water-tap':{label:'Water Tap',cat:'facilities',dw:3,dh:3,color:'#48cae4',circular:true,
     draw(ctx,x,y,w,h,col){
       const cx=x+w/2,cy=y+h/2,r=Math.min(w,h)/2*.8;
       ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);
@@ -787,7 +792,7 @@ const ITEMS = {
       ctx.fillRect(x+w*.2,y+h/2-cw/2,h*.6,cw);
     }},
 
-  'info-point':{label:'Info Point',cat:'facilities',dw:3,dh:3,color:'#2196f3',
+  'info-point':{label:'Info Point',cat:'facilities',dw:3,dh:3,color:'#2196f3',circular:true,
     draw(ctx,x,y,w,h,col){
       const cx=x+w/2,cy=y+h/2,r=Math.min(w,h)/2*.85;
       ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);
@@ -938,7 +943,7 @@ const ITEMS = {
       }
     }},
 
-  'fire-pit':{label:'Fire Pit',cat:'events',dw:4,dh:4,color:'#e85d04',
+  'fire-pit':{label:'Fire Pit',cat:'events',dw:4,dh:4,color:'#e85d04',circular:true,
     draw(ctx,x,y,w,h,col){
       const cx=x+w/2,cy=y+h/2,r=Math.min(w,h)/2*.8;
       ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);
@@ -1012,6 +1017,7 @@ let S = {
   gridScale:5, // m/cell
   cellPx:60,   // px/cell
   tool:'select',
+  snapEnabled:true,
   showGrid:true,
   showRulers:true,
   showLabels:true,
@@ -1159,6 +1165,7 @@ function render(){
 }
 
 function snapToGrid(wx,wy){
+  if(!S.snapEnabled) return {x:wx,y:wy};
   return { x: Math.round(wx), y: Math.round(wy) };
 }
 
@@ -1663,8 +1670,15 @@ function updatePropsPanel(){
   document.getElementById('prop-label').value = item.label||'';
   document.getElementById('prop-notes').value = item.notes||'';
   document.getElementById('prop-color').value = item.color||ITEMS[item.type]?.color||'#888888';
-  document.getElementById('prop-width').value = Math.round(item.w*S.gridScale);
-  document.getElementById('prop-height').value = Math.round(item.h*S.gridScale);
+  const isCircular = !!(ITEMS[item.type]?.circular);
+  document.getElementById('prop-diameter-row').style.display = isCircular ? '' : 'none';
+  document.getElementById('prop-wh-row').style.display = isCircular ? 'none' : '';
+  if(isCircular){
+    document.getElementById('prop-diameter').value = Math.round(item.w*S.gridScale);
+  } else {
+    document.getElementById('prop-width').value = Math.round(item.w*S.gridScale);
+    document.getElementById('prop-height').value = Math.round(item.h*S.gridScale);
+  }
   document.getElementById('prop-rotation').value = item.rotation||0;
   document.getElementById('prop-rot-val').textContent = (item.rotation||0)+'°';
   document.getElementById('prop-highlight').checked = !!item.highlighted;
@@ -1677,10 +1691,16 @@ function applyPropChange(){
   item.label = document.getElementById('prop-label').value;
   item.notes = document.getElementById('prop-notes').value;
   item.color = document.getElementById('prop-color').value;
-  const wm = parseFloat(document.getElementById('prop-width').value)||1;
-  const hm = parseFloat(document.getElementById('prop-height').value)||1;
-  item.w = Math.max(0.5, wm/S.gridScale);
-  item.h = Math.max(0.5, hm/S.gridScale);
+  const isCircular = !!(ITEMS[item.type]?.circular);
+  if(isCircular){
+    const dm = parseFloat(document.getElementById('prop-diameter').value)||1;
+    item.w = item.h = Math.max(0.1, dm/S.gridScale);
+  } else {
+    const wm = parseFloat(document.getElementById('prop-width').value)||1;
+    const hm = parseFloat(document.getElementById('prop-height').value)||1;
+    item.w = Math.max(0.1, wm/S.gridScale);
+    item.h = Math.max(0.1, hm/S.gridScale);
+  }
   item.rotation = parseFloat(document.getElementById('prop-rotation').value)||0;
   document.getElementById('prop-rot-val').textContent = item.rotation+'°';
   item.highlighted = document.getElementById('prop-highlight').checked;
@@ -1688,7 +1708,7 @@ function applyPropChange(){
   render();
 }
 
-['prop-label','prop-notes','prop-color','prop-width','prop-height','prop-rotation','prop-highlight','prop-lock'].forEach(id=>{
+['prop-label','prop-notes','prop-color','prop-diameter','prop-width','prop-height','prop-rotation','prop-highlight','prop-lock'].forEach(id=>{
   const el=document.getElementById(id);
   el.addEventListener('input',()=>{applyPropChange();});
   el.addEventListener('change',()=>{applyPropChange();pushHistory();});
@@ -1718,6 +1738,7 @@ document.getElementById('sel-scale').addEventListener('change',e=>{
 document.getElementById('chk-grid').addEventListener('change',e=>{ S.showGrid=e.target.checked; render(); });
 document.getElementById('chk-rulers').addEventListener('change',e=>{ S.showRulers=e.target.checked; render(); });
 document.getElementById('chk-labels').addEventListener('change',e=>{ S.showLabels=e.target.checked; render(); });
+document.getElementById('chk-snap').addEventListener('change',e=>{ S.snapEnabled=e.target.checked; });
 
 document.getElementById('btn-zoom-in').addEventListener('click',()=>{
   const z=Math.min(6,S.viewport.zoom*1.25);
