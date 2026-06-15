@@ -120,6 +120,43 @@ body.light .gh-modal{background:#ebebE3;border-color:#bbb}
 body.light .gh-field input{background:#dcdcd4;color:#2d2d3a;border-color:#bbb}
 body.light #gh-cancel-cfg{background:#dcdcd4;color:#2d2d3a}
 
+/* SETTINGS MODAL */
+.set-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:3000;display:none;align-items:center;justify-content:center}
+.set-modal-overlay.show{display:flex}
+.set-modal{background:#1e1e2e;border:1px solid #45475a;border-radius:10px;width:560px;max-width:94vw;max-height:88vh;display:flex;flex-direction:column;box-shadow:0 12px 40px rgba(0,0,0,.6)}
+.set-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid #313244}
+.set-head h3{color:#cba6f7;font-size:16px}
+.set-head .set-sub{font-size:11px;color:#6c7086;margin-top:3px;font-weight:400}
+.set-close{background:none;border:none;color:#6c7086;font-size:20px;cursor:pointer;padding:2px 8px;border-radius:5px}
+.set-close:hover{background:#313244;color:#cdd6f4}
+.set-body{overflow-y:auto;padding:8px 12px;flex:1}
+.set-body::-webkit-scrollbar{width:6px}
+.set-body::-webkit-scrollbar-thumb{background:#45475a;border-radius:3px}
+.set-cat{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#6c7086;padding:12px 6px 6px}
+.set-row{display:grid;grid-template-columns:46px 1fr auto auto auto;align-items:center;gap:10px;padding:7px 8px;border-radius:7px;transition:background .12s}
+.set-row:hover{background:#252535}
+.set-prev{width:46px;height:36px;border-radius:4px;background:#16161d;border:1px solid #313244;overflow:hidden}
+.set-name{font-size:12px;color:#cdd6f4;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.set-size-wrap{display:flex;align-items:center;gap:4px;font-size:11px;color:#6c7086}
+.set-size-wrap input{width:46px;background:#313244;border:1px solid #45475a;color:#cdd6f4;border-radius:4px;padding:4px 5px;font-size:12px;outline:none;text-align:center}
+.set-size-wrap input:focus{border-color:#7c3aed}
+.set-color{width:34px;height:28px;border:1px solid #45475a;border-radius:5px;cursor:pointer;background:none;padding:2px}
+.set-reset{background:#313244;border:1px solid #45475a;color:#6c7086;border-radius:4px;font-size:11px;padding:4px 8px;cursor:pointer;white-space:nowrap}
+.set-reset:hover{background:#45475a;color:#cdd6f4}
+.set-foot{display:flex;align-items:center;gap:10px;padding:14px 20px;border-top:1px solid #313244}
+.set-foot .set-note{flex:1;font-size:11px;color:#6c7086}
+.set-foot button{padding:7px 16px;border-radius:6px;border:1px solid #45475a;cursor:pointer;font-size:13px}
+#set-reset-all{background:#3d1a1a;border-color:#f38ba8;color:#f38ba8}
+#set-reset-all:hover{background:#4d2222}
+#set-done{background:#7c3aed;border-color:#7c3aed;color:#fff}
+body.light .set-modal{background:#ebebE3;border-color:#bbb}
+body.light .set-head h3{color:#6d28d9}
+body.light .set-row:hover{background:#e0e0d6}
+body.light .set-name{color:#2d2d3a}
+body.light .set-prev{background:#f0efe6;border-color:#ccc}
+body.light .set-size-wrap input,body.light .set-color{background:#dcdcd4;color:#2d2d3a;border-color:#bbb}
+body.light .set-reset{background:#dcdcd4;color:#666;border-color:#bbb}
+
 /* LIGHT MODE */
 body.light{background:#f0f0e8;color:#2d2d3a}
 body.light #topbar,body.light #statusbar,body.light #cmp-toolbar{background:#e4e4dc;border-color:#ccc}
@@ -256,6 +293,7 @@ body.light #cmp-canvases{background:#bbb}
     <button class="tb-btn active" data-tool="select" id="tool-select">↖ Select</button>
     <button class="tb-btn" data-tool="pan" id="tool-pan">✋ Pan</button>
     <button class="tb-btn" data-tool="delete" id="tool-delete">✕ Delete</button>
+    <button class="tb-btn" id="btn-duplicate" title="Duplicate selected item (Ctrl+D)">⧉ Duplicate</button>
   </div>
   <div class="tb-group">
     <button class="tb-btn" id="btn-zoom-in">＋</button>
@@ -280,6 +318,7 @@ body.light #cmp-canvases{background:#bbb}
   </div>
   <div class="tb-group">
     <button class="tb-btn" id="btn-theme">☀ Light</button>
+    <button class="tb-btn" id="btn-settings">⚙ Settings</button>
   </div>
   <div class="tb-group">
     <button class="tb-btn" id="btn-versions" style="background:#2d4a3e;border-color:#52b788;color:#b7e4c7">📋 Versions</button>
@@ -341,7 +380,8 @@ body.light #cmp-canvases{background:#bbb}
         <input type="checkbox" id="prop-lock" style="accent-color:#f9c74f">
         <label for="prop-lock">🔒 Lock position</label>
       </div>
-      <button class="tb-btn danger" id="prop-delete" style="margin-top:4px">✕ Delete Item</button>
+      <button class="tb-btn" id="prop-duplicate" style="margin-top:4px">⧉ Duplicate (Ctrl+D)</button>
+      <button class="tb-btn danger" id="prop-delete">✕ Delete Item</button>
     </div>
   </div>
 </div>
@@ -382,6 +422,25 @@ body.light #cmp-canvases{background:#bbb}
 
 <input type="file" id="file-input" accept=".json" style="display:none">
 <input type="file" id="ver-import-input" accept=".json" style="display:none">
+
+<!-- SETTINGS MODAL -->
+<div class="set-modal-overlay" id="set-modal">
+  <div class="set-modal">
+    <div class="set-head">
+      <div>
+        <h3>⚙ Token Defaults</h3>
+        <div class="set-sub">Set the default size &amp; colour used when placing each token type. Sizes are in metres.</div>
+      </div>
+      <button class="set-close" id="set-close">✕</button>
+    </div>
+    <div class="set-body" id="set-body"></div>
+    <div class="set-foot">
+      <span class="set-note">Changes apply to newly placed tokens. Saved in this browser.</span>
+      <button id="set-reset-all">Reset all</button>
+      <button id="set-done">Done</button>
+    </div>
+  </div>
+</div>
 
 <!-- GITHUB CONFIG MODAL -->
 <div class="gh-modal-overlay" id="gh-modal">
@@ -1008,6 +1067,23 @@ const CATS = {
   events:{label:'🎪 Stalls & Events',order:4},
 };
 
+// ===================== PER-TYPE DEFAULT OVERRIDES =====================
+const OVR_KEY = 'event-planner-defaults';
+let OVERRIDES = {};
+function ovrLoad(){ try{ OVERRIDES = JSON.parse(localStorage.getItem(OVR_KEY)||'{}'); }catch(e){ OVERRIDES={}; } }
+function ovrSave(){ localStorage.setItem(OVR_KEY, JSON.stringify(OVERRIDES)); }
+// Effective definition: built-in ITEMS merged with the user's saved overrides
+function defOf(type){
+  const base = ITEMS[type];
+  const o = OVERRIDES[type] || {};
+  return {
+    label: base.label, cat: base.cat, circular: base.circular, draw: base.draw,
+    dw: (o.dw!=null ? o.dw : base.dw),
+    dh: (o.dh!=null ? o.dh : base.dh),
+    color: (o.color!=null ? o.color : base.color),
+  };
+}
+
 // ===================== STATE =====================
 let S = {
   items:[],
@@ -1139,9 +1215,9 @@ function render(){
   // Sidebar drag ghost on canvas
   if(S.sidebarDrag && S.sidebarDrag.onCanvas){
     const wp = screenToWorld(S.sidebarDrag.x - 24, S.sidebarDrag.y - 24);
-    const def = ITEMS[S.sidebarDrag.type];
-    const wCells = Math.max(0.5, def.dw / S.gridScale);
-    const hCells = Math.max(0.5, def.dh / S.gridScale);
+    const def = defOf(S.sidebarDrag.type);
+    const wCells = Math.max(0.1, def.dw / S.gridScale);
+    const hCells = Math.max(0.1, def.dh / S.gridScale);
     const sw = wCells * cpx;
     const sh = hCells * cpx;
     const snap = snapToGrid(wp.x - wCells/2, wp.y - hCells/2);
@@ -1532,12 +1608,13 @@ function buildSidebar(){
       const item=document.createElement('div');
       item.className='palette-item';
       item.dataset.type=key;
-      // Mini canvas preview
+      // Mini canvas preview (reflects any saved colour override)
+      const eff=defOf(key);
       const previewCanvas=document.createElement('canvas');
       previewCanvas.width=54;previewCanvas.height=44;
       const pctx=previewCanvas.getContext('2d');
       pctx.save();
-      def.draw(pctx,2,2,50,40,def.color);
+      eff.draw(pctx,2,2,50,40,eff.color);
       pctx.restore();
       const label=document.createElement('span');
       label.textContent=def.label;
@@ -1566,7 +1643,7 @@ function startSidebarDrag(type, clientX, clientY){
   S.sidebarDrag={type,x:clientX,y:clientY,onCanvas:false};
   const ghost=document.getElementById('drag-ghost');
   const gc=document.getElementById('ghost-canvas');
-  const def=ITEMS[type];
+  const def=defOf(type);
   gc.width=80;gc.height=70;
   const gctx=gc.getContext('2d');gctx.clearRect(0,0,80,70);
   def.draw(gctx,2,2,76,66,def.color);
@@ -1621,11 +1698,11 @@ document.addEventListener('touchend',e=>{
 });
 
 function placeSidebarItem(type, sx, sy){
-  const def = ITEMS[type];
+  const def = defOf(type);
   const wp = screenToWorld(sx, sy);
   // dw/dh are in metres; convert to cells
-  const wCells = Math.max(0.5, def.dw / S.gridScale);
-  const hCells = Math.max(0.5, def.dh / S.gridScale);
+  const wCells = Math.max(0.1, def.dw / S.gridScale);
+  const hCells = Math.max(0.1, def.dh / S.gridScale);
   const snap = snapToGrid(wp.x - wCells/2, wp.y - hCells/2);
   const item = {
     id: S.nextId++,
@@ -1656,6 +1733,15 @@ function selectItem(id){
 function deleteItem(id){
   S.items = S.items.filter(i=>i.id!==id);
   if(S.selectedId===id) selectItem(null);
+  pushHistory();
+  render();
+}
+
+function duplicateItem(src){
+  if(!src) return;
+  const clone = {...src, id:S.nextId++, x:src.x+1, y:src.y+1, locked:false, zIndex:S.items.length};
+  S.items.push(clone);
+  selectItem(clone.id);
   pushHistory();
   render();
 }
@@ -1714,6 +1800,11 @@ function applyPropChange(){
   el.addEventListener('change',()=>{applyPropChange();pushHistory();});
 });
 
+document.getElementById('prop-duplicate').addEventListener('click',()=>{
+  const item=S.items.find(i=>i.id===S.selectedId);
+  duplicateItem(item);
+});
+
 document.getElementById('prop-delete').addEventListener('click',()=>{
   const item=S.items.find(i=>i.id===S.selectedId);
   if(item&&item.locked){alert('Unlock the item before deleting.');return;}
@@ -1728,6 +1819,12 @@ document.querySelectorAll('[data-tool]').forEach(btn=>{
     btn.classList.add('active');
     canvas.style.cursor = S.tool==='pan'?'grab':S.tool==='delete'?'not-allowed':'default';
   });
+});
+
+document.getElementById('btn-duplicate').addEventListener('click',()=>{
+  const item=S.items.find(i=>i.id===S.selectedId);
+  if(!item){ alert('Select an item first, then click Duplicate.'); return; }
+  duplicateItem(item);
 });
 
 document.getElementById('sel-scale').addEventListener('change',e=>{
@@ -1797,6 +1894,13 @@ document.getElementById('btn-redo').addEventListener('click',redo);
 document.addEventListener('keydown',e=>{
   if((e.ctrlKey||e.metaKey)&&e.key==='z'){e.preventDefault();undo();}
   if((e.ctrlKey||e.metaKey)&&e.key==='y'){e.preventDefault();redo();}
+  if((e.ctrlKey||e.metaKey)&&(e.key==='d'||e.key==='D')){
+    if(!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){
+      e.preventDefault();
+      const item=S.items.find(i=>i.id===S.selectedId);
+      if(item) duplicateItem(item);
+    }
+  }
   if(e.key==='Delete'||e.key==='Backspace'){
     if(S.selectedId&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){
       const item=S.items.find(i=>i.id===S.selectedId);
@@ -1824,9 +1928,7 @@ document.getElementById('ctx-edit').addEventListener('click',()=>{
   openLabelModal(ctxItem);
 });
 document.getElementById('ctx-dup').addEventListener('click',()=>{
-  if(!ctxItem) return;
-  const clone={...ctxItem,id:S.nextId++,x:ctxItem.x+1,y:ctxItem.y+1,zIndex:S.items.length};
-  S.items.push(clone); selectItem(clone.id); pushHistory(); render();
+  duplicateItem(ctxItem);
 });
 document.getElementById('ctx-rot45').addEventListener('click',()=>{
   if(!ctxItem) return;
@@ -1974,6 +2076,7 @@ document.getElementById('item-search').addEventListener('input',e=>{
 new ResizeObserver(resizeCanvases).observe(wrapper);
 
 // ===================== INIT =====================
+ovrLoad();        // load saved per-type defaults before building palette
 buildSidebar();
 pushHistory(); // initial empty state
 resizeCanvases();
@@ -2511,6 +2614,86 @@ if(GH.owner && GH.repo && GH.token){
 } else {
   ghSetStatus('disconnected','GitHub not connected');
 }
+
+// ===================== SETTINGS MODAL (TOKEN DEFAULTS) =====================
+function settingsBuild(){
+  const body=document.getElementById('set-body');
+  body.innerHTML='';
+  const catOrder=Object.keys(CATS).sort((a,b)=>CATS[a].order-CATS[b].order);
+  catOrder.forEach(cat=>{
+    const catItems=Object.entries(ITEMS).filter(([k,v])=>v.cat===cat);
+    if(!catItems.length) return;
+    const ch=document.createElement('div');ch.className='set-cat';ch.textContent=CATS[cat].label;
+    body.appendChild(ch);
+    catItems.forEach(([key,base])=>{
+      const eff=defOf(key);
+      const row=document.createElement('div');row.className='set-row';
+
+      // Preview
+      const prev=document.createElement('div');prev.className='set-prev';
+      const pc=document.createElement('canvas');pc.width=46;pc.height=36;
+      eff.draw(pc.getContext('2d'),2,2,42,32,eff.color);
+      prev.appendChild(pc);
+
+      // Name
+      const name=document.createElement('div');name.className='set-name';name.textContent=base.label;
+
+      // Size controls (diameter for circular, w×h otherwise)
+      const sizeWrap=document.createElement('div');sizeWrap.className='set-size-wrap';
+      if(base.circular){
+        const di=document.createElement('input');di.type='number';di.min='1';di.step='1';di.value=eff.dw;di.title='Diameter (m)';
+        di.addEventListener('input',()=>{
+          const v=Math.max(0.5,parseFloat(di.value)||1);
+          OVERRIDES[key]={...OVERRIDES[key],dw:v,dh:v};ovrSave();refreshPreview();
+        });
+        sizeWrap.appendChild(document.createTextNode('⌀'));sizeWrap.appendChild(di);sizeWrap.appendChild(document.createTextNode('m'));
+      } else {
+        const wi=document.createElement('input');wi.type='number';wi.min='1';wi.step='1';wi.value=eff.dw;wi.title='Width (m)';
+        const hi=document.createElement('input');hi.type='number';hi.min='1';hi.step='1';hi.value=eff.dh;hi.title='Height (m)';
+        wi.addEventListener('input',()=>{OVERRIDES[key]={...OVERRIDES[key],dw:Math.max(0.5,parseFloat(wi.value)||1)};ovrSave();refreshPreview();});
+        hi.addEventListener('input',()=>{OVERRIDES[key]={...OVERRIDES[key],dh:Math.max(0.5,parseFloat(hi.value)||1)};ovrSave();refreshPreview();});
+        sizeWrap.appendChild(wi);sizeWrap.appendChild(document.createTextNode('×'));sizeWrap.appendChild(hi);
+      }
+
+      // Colour
+      const col=document.createElement('input');col.type='color';col.className='set-color';col.value=toHex(eff.color);col.title='Default colour';
+      col.addEventListener('input',()=>{OVERRIDES[key]={...OVERRIDES[key],color:col.value};ovrSave();refreshPreview();});
+
+      // Reset this type
+      const rst=document.createElement('button');rst.className='set-reset';rst.textContent='Reset';rst.title='Restore built-in default';
+      rst.addEventListener('click',()=>{delete OVERRIDES[key];ovrSave();settingsBuild();buildSidebar();});
+
+      function refreshPreview(){
+        const e2=defOf(key);
+        const c2=pc.getContext('2d');c2.clearRect(0,0,46,36);
+        e2.draw(c2,2,2,42,32,e2.color);
+        buildSidebar();
+      }
+
+      row.appendChild(prev);row.appendChild(name);row.appendChild(sizeWrap);row.appendChild(col);row.appendChild(rst);
+      body.appendChild(row);
+    });
+  });
+}
+// Coerce any colour (named/hex) to #rrggbb for <input type=color>
+function toHex(c){
+  if(/^#[0-9a-f]{6}$/i.test(c)) return c;
+  const d=document.createElement('canvas').getContext('2d');d.fillStyle=c;return d.fillStyle;
+}
+document.getElementById('btn-settings').addEventListener('click',()=>{
+  settingsBuild();
+  document.getElementById('set-modal').classList.add('show');
+});
+document.getElementById('set-close').addEventListener('click',()=>document.getElementById('set-modal').classList.remove('show'));
+document.getElementById('set-done').addEventListener('click',()=>document.getElementById('set-modal').classList.remove('show'));
+document.getElementById('set-modal').addEventListener('click',e=>{
+  if(e.target===document.getElementById('set-modal')) document.getElementById('set-modal').classList.remove('show');
+});
+document.getElementById('set-reset-all').addEventListener('click',()=>{
+  if(confirm('Reset ALL token defaults back to built-in values?')){
+    OVERRIDES={};ovrSave();settingsBuild();buildSidebar();
+  }
+});
 
 // Theme toggle
 document.getElementById('btn-theme').addEventListener('click',()=>{
