@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
     name: 'Maybel',
     role: 'Bailiff of the Grand Market – Matriarch of Bel End',
     hero: 'members/maybel-hero.png',
-    thumbnail: 'members/Maybel.png',
+    thumbnail: 'members/maybel.png',
     location: 'Bel End, Upwold',
     about: 'Maybel was the voice that preceded her arrival, and the one everyone listened to before they saw her. As Bailiff of the Grand Market, leader of Crafternoon, and matriarch of Bel End, she kept the House’s trade and community running as smoothly as any good scheme required.\nIf the noise started rising, you could assume Maybel was nearby and already plotting the next improvement to everyone’s lives.',
     skills: 'Big Stick · Trade · Bonk · Crafting',
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
     role: 'Battle Medic – Keeper of Order',
     hero: 'members/maud-hero.png',
     thumbnail: 'members/maud.png',
-    location: 'Tending to her mana site in Upwold',
+    location: 'Tending to her farm in Upwold',
     about: 'Maud’s the one who keeps us alive - and in line. She’s fierce in a fight, sharper with her tongue, and the first to drag you back to your feet when you’ve overstepped.\nBattle-tested and unshakable, she keeps the Crosslands from tearing themselves apart.',
     skills: 'Healing · Combat · Leadership · Discipline',
     category: 'active'
