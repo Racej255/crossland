@@ -65,10 +65,10 @@ document.addEventListener('DOMContentLoaded', () => {
     role: 'Chief Chef of the House – Captain of the Fleet',
     hero: 'members/maxwell-hero.png',
     thumbnail: 'members/maxwell.png',
-    location: 'Roaming the Seas of the Empire',
-    about: '“Daddy” Maxwell runs the Crossland fleet and keeps the crew fed along the way. A gentle giant with a pot in one hand and a ship’s wheel in the other, he’s known as the most honest Crossland - though that’s a low bar to clear.\nHis stew’s legendary, his word’s good, and no one leaves his galley hungry or unhappy.',
+    location: 'Absent from the House',
+    about: '“Daddy” Maxwell ran the Crossland fleet and kept the crew fed along the way. A gentle giant with a pot in one hand and a ship’s wheel in the other, he was known as the most honest Crossland - though that was a low bar to clear.\nHis stew was legendary, his word was good, and no one left his galley hungry or unhappy.\nHe was once part of the House, but he has now moved on and is remembered as Ex-Crossland.',
     skills: 'Seamanship · Cooking · Leadership · Integrity',
-    category: 'active'
+    category: 'missing'
   },
 
   bill: {
@@ -95,13 +95,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   joshua: {
     name: 'Joshua Stone',
-    role: 'Captain of Arms – Protector of the House',
+    role: 'House Co-Founder – Fallen in Battle',
     hero: 'members/joshua-hero.png',
     thumbnail: 'members/joshua.png',
-    location: 'Graven Rock, Bregasland',
-    about: 'Joshua Stone is a soldier through and through. He trains the House’s footsoldiers, keeps our weapons sharp, and makes sure our battles are fought smart as well as hard.\nA steady hand and a straight arrow, Joshua keeps the Crosslands safe - and mostly on the right side of the law.',
+    location: '6 feet under, Graven Rock',
+    about: 'Joshua Stone was a soldier through and through. He trained the House’s footsoldiers, kept our weapons sharp, and made sure our battles were fought smart as well as hard.\nA steady hand and a straight arrow, Joshua kept the Crosslands safe - and mostly on the right side of the law.\nHe fell in battle and is remembered with honour.',
     skills: 'Military Command · Training · Strategy · Discipline',
-    category: 'active'
+    category: 'dead'
   },
 
   sadie: {
@@ -126,14 +126,36 @@ document.addEventListener('DOMContentLoaded', () => {
     category: 'active'
   },
 
-  agnesmaybel: {
-    name: 'Agnes & Maybel',
-    role: 'Twin Tricksters – Faces of the House',
-    hero: 'members/agnesmaybel-hero.png',
-    thumbnail: 'members/agnesmaybel.png',
+  agnes: {
+    name: 'Agnes',
+    role: 'Child Wangler – The mysterious one',
+    hero: 'members/agnes.png',
+    thumbnail: 'members/agnes.png',
     location: 'Bel End, Upwold',
-    about: 'Agnes and Maybel came to the Crosslands together and haven’t stopped causing mischief since. Agnes works at the academy, shaping the next generation of Crossland troublemakers, while Maybel plays the saint - Matron of Bel End, running community projects, and convincing the Marches we’re model citizens.\nTwo halves of the same grin, they make chaos look charming.',
-    skills: 'Manipulation · Teaching · Deception · Performance',
+    about: 'Agnes was the Crosslands’ child wrangler, keeping the next generation of troublemakers in line and out of genuinely bad decisions. Rarely seen unless something was misbehaving, she was usually found at the academy, shaping the young and the unruly.\nQuiet by reputation, but impossible to ignore once she had decided the chaos needed sorting.',
+    skills: 'Teaching · Management · Keeping Order · Patience',
+    category: 'active'
+  },
+
+  maybel: {
+    name: 'Maybel',
+    role: 'Bailiff of the Grand Market – Matriarch of Bel End',
+    hero: 'members/Maybel.png',
+    thumbnail: 'members/Maybel.png',
+    location: 'Bel End, Upwold',
+    about: 'Maybel was the voice that preceded her arrival, and the one everyone listened to before they saw her. As Bailiff of the Grand Market, leader of Crafternoon, and matriarch of Bel End, she kept the House’s trade and community running as smoothly as any good scheme required.\nIf the noise started rising, you could assume Maybel was nearby and already plotting the next improvement to everyone’s lives.',
+    skills: 'Big Stick · Trade · Bonk · Crafting',
+    category: 'active'
+  },
+
+  ollie: {
+    name: 'Ollie Carpenter',
+    role: 'Sergeant of the Levy – Protector of the House',
+    hero: 'members/Ollie.png',
+    thumbnail: 'members/Ollie.png',
+    location: 'Crossland Estate, Mitwold',
+    about: 'Ollie Carpenter kept the House safe and the levy in good order, standing as a steady shield for the Crosslands when trouble walked in. He was the sort of protector who made danger think twice before it started.\nPractical, dependable and always in the right place at the right moment, Ollie was a valued part of the House.',
+    skills: 'Protection · Command · Discipline · Security',
     category: 'active'
   },
 
@@ -227,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   harvest: {
     name: 'Brother Harvest',
-    role: 'Spiritual Advisor – Prophet of the Pot',
+    role: 'Spiritual Advisor – (Crack) Pot',
     hero: 'members/harvest-hero.png',
     thumbnail: 'members/harvest.png',
     location: 'Back in his ditch behind the Crossland Estate',

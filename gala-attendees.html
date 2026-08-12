@@ -116,7 +116,7 @@
 <section class="section" id="schedule">
 <div class="container">
 <h2>Schedule</h2>
-<p>Here's the planned timeline for the Grand Crossland Gala 2026. Please note that times are approximate and may be subject to minor adjustments.</p>
+<p>Here's the planned timeline for the Grand Crossland Gala 2027. Please note that times are approximate and may be subject to minor adjustments.</p>
 
 <div class="timeline-container">
 <div class="timeline-item">
@@ -143,7 +143,7 @@
 <div class="timeline-item">
 <div class="timeline-entry">
 <span class="timeline-time">20:30</span>
-<span class="timeline-text">Banquet concludes. Fire dancer performance in the courtyard; or drinks in the Oak Room.</span>
+<span class="timeline-text">Banquet concludes. Entertainment begins, or quiet drinks in the Oak Room.</span>
 </div>
 </div>
 
@@ -182,7 +182,7 @@
 <section class="section" id="menu">
 <div class="container">
 <h2>Menu</h2>
-<p>We're delighted to offer both standard and vegan menu options for the Grand Crossland Gala. Please note that for individuals with specific dietary requirements, these have been noted and will be confirmed with you directly. A full menu may not be available in advance for all dietary needs.</p>
+<p>We're delighted to offer both standard and vegan menu options for the Grand Crossland Gala. Please note that for individuals with specific dietary requirements, these have been noted and will be confirmed with you directly. A full menu may not be available in advance for all dietary needs. The menu is subject to change up until the evening of the event.</p>
 
 <!-- Tabs to switch between standard and vegan menus -->
 <div class="menu-tabs">
@@ -224,8 +224,9 @@
 <section class="section" id="characters">
 <div class="container">
 <h2>Characters in Attendance</h2>
-<p>The following characters are confirmed to be attending the Grand Crossland Gala 2026:</p>
-<p class="mobile-table-notice">If the table doesn't display correctly on your mobile device, you can <a href="Gala Attendance 2026.xlsx" download>view the full attendance list here</a>.</p>
+<p>The following characters are confirmed to be attending the Grand Crossland Gala 2027:</p>
+<p class="mobile-table-notice">If the table doesn't display correctly on your mobile device, you can <a href="Gala Attendance 2027.xlsx" download>view the full attendance list here</a>.</p>
+<p class="mobile-table-notice">This table is designed to pull the latest roster from our backend attendance feed when available.</p>
 <div id="character-table-container" style="margin-top: 1.5rem; overflow-x: auto; -webkit-overflow-scrolling: touch;">
 <table id="character-table" class="character-table">
 <thead>
@@ -252,7 +253,7 @@
 
 <div class="faq-item">
 <h3>Do I need to bring anything?</h3>
-<p>Nope! All cutlery, plates, and glassware will be provided. Just bring yourself (and maybe a cloak or vaguely IC coat if you want to step outside for entertainment).</p>
+<p>Nope! All cutlery, plates, and glassware will be provided. Just bring yourself (and maybe a cloak or vaguely IC coat if you want to step outside).</p>
 </div>
 
 <div class="faq-item">
@@ -435,13 +436,22 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   // Character table data and sorting
-  const characterData = [
+  let characterData = [
     {player: 'TBC', character: 'TBC', affiliation: 'TBC', nation: 'TBC'}
   ];
   
   let currentSortColumn = null;
   let currentSortDirection = 'asc';
   
+  function normalizeCharacterData(data) {
+    return data.map(char => ({
+      player: char['Player Name'] || char.player || '',
+      character: char['Character Name'] || char.character || '',
+      affiliation: char.Affiliation || char.affiliation || '',
+      nation: char.Nation || char.nation || ''
+    }));
+  }
+
   function renderTable(data) {
     const tbody = document.getElementById('character-tbody');
     if (!tbody) return;
@@ -454,6 +464,23 @@ document.addEventListener('DOMContentLoaded', function() {
         <td>${char.nation || ''}</td>
       </tr>
     `).join('');
+  }
+  
+  async function loadCharacterData() {
+    try {
+      const response = await fetch('gala-attendance.json', { cache: 'no-store' });
+      if (response.ok) {
+        const data = await response.json();
+        if (Array.isArray(data) && data.length > 0) {
+          characterData = normalizeCharacterData(data);
+          sortTable('affiliation');
+          return;
+        }
+      }
+    } catch (error) {
+      console.warn('Unable to load live gala attendance data:', error);
+    }
+    renderTable(characterData);
   }
   
   function sortTable(column) {
@@ -487,7 +514,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   // Populate table on load
-  renderTable(characterData);
+  loadCharacterData();
   
   // Add click handlers to sortable headers
   document.querySelectorAll('.character-table th.sortable').forEach(th => {
