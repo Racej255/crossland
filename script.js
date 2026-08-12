@@ -117,12 +117,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   kas: {
     name: 'Kaspian',
-    role: 'Militia Liaison – Cocktail Curator & Herby Guy',
+    role: 'Alder of Bel End – Fleetmaster & Night Magician',
     hero: 'members/kaspian-hero.png',
     thumbnail: 'members/kaspian.png',
     location: 'Bel End, Upwold',
-    about: 'An immigrant from the Brass Coast, Kaspian’s as handy with herbs as he is with a hammer. A skilled healer and cocktail curator, he keeps Crossland fighters on their feet - whether on the battlefield or at the bar.\nThrough his position in the militia, he protects the House in legal matters, and when a scheme or adventure is brewing, Kaspian’s never far behind.',
-    skills: 'Healing · Mixology · Combat Support · Legal Savvy',
+    about: 'An immigrant from the Brass Coast, Kaspian has traded his herb garden for a fleet and is taking his cocktails on to the open waters. As Alder of Bel End, he balances the responsibilities of leading the town with a growing life upon the waves.\nA healer and seasoned fighter, Kaspian is also a magician of the Night Realm, practising its rituals and mysteries. He also has a tendency to speak with the dead. With his fleet sailing out, Kaspian’s latest adventure is only just beginning.',
+    skills: 'Healing · Combat · Night Realm Magic · Ritualism · Chatting with the Dead · Fleetmaster',
     category: 'active'
   },
 
@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
     hero: 'members/Ollie.png',
     thumbnail: 'members/Ollie.png',
     location: 'Crossland Estate, Mitwold',
-    about: 'Ollie Carpenter kept the House safe and the levy in good order, standing as a steady shield for the Crosslands when trouble walked in. He was the sort of protector who made danger think twice before it started.\nPractical, dependable and always in the right place at the right moment, Ollie was a valued part of the House.',
+    about: 'Ollie Carpenter keeps the House safe and the levy in good order, standing as a steady shield for the Crosslands when trouble walks in. He is the sort of protector who makes danger think twice before it starts.\nPractical, dependable and always in the right place at the right moment, Ollie is a valued part of the House.',
     skills: 'Protection · Command · Discipline · Security',
     category: 'active'
   },
