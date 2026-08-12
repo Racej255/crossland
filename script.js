@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
     name: 'Ollie Carpenter',
     role: 'Sergeant of the Levy – Protector of the House',
     hero: 'members/ollie-hero.png',
-    thumbnail: 'members/Ollie.png',
+    thumbnail: 'members/ollie.png',
     location: 'Crossland Estate, Mitwold',
     about: 'Ollie Carpenter keeps the House safe and the levy in good order, standing as a steady shield for the Crosslands when trouble walks in. He is the sort of protector who makes danger think twice before it starts.\nPractical, dependable and always in the right place at the right moment, Ollie is a valued part of the House.',
     skills: 'Protection · Command · Discipline · Security',
