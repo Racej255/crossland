@@ -8,7 +8,20 @@
  * closed by clicking the close icon or anywhere outside the content.
  */
 
+const SITE_ASSET_VERSION = '2026-08-12.2';
+
+function withAssetVersion(path) {
+  if (!path || /^(?:https?:|data:|#)/i.test(path)) return path;
+  const separator = path.includes('?') ? '&' : '?';
+  return `${path}${separator}v=${SITE_ASSET_VERSION}`;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('img[src]').forEach((img) => {
+    const source = img.getAttribute('src');
+    if (source) img.src = withAssetVersion(source);
+  });
+
   const modal = document.getElementById('member-modal');
   const modalImg = document.getElementById('modal-img');
   const modalName = document.getElementById('modal-name');
@@ -289,7 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function showMemberModal(key) {
     const data = membersData[key];
     if (!data) return;
-    modalImg.src = data.hero;
+    modalImg.src = withAssetVersion(data.hero);
     modalName.textContent = data.name;
     modalRole.textContent = data.role;
     modalLocation.textContent = data.location || '';
@@ -312,7 +325,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       const imgEl = card.querySelector('img');
       if (thumb && imgEl) {
-        imgEl.src = thumb;
+        imgEl.src = withAssetVersion(thumb);
         imgEl.alt = data.name;
       }
     }
