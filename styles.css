@@ -1007,6 +1007,11 @@ margin-bottom: 0.75rem;
   background: rgba(9, 36, 24, 0.9);
 }
 
+.gallery-status {
+  margin: 1rem 0 0;
+  text-align: center;
+}
+
 /* Footer styling */
 .footer {
   background: rgba(9, 36, 24, 0.95);

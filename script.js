@@ -388,13 +388,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const prevBtn = document.getElementById('gallery-prev');
   const nextBtn = document.getElementById('gallery-next');
   // Gather sources from the carousel instead of the gallery grid
-  const gallerySources = Array.from(document.querySelectorAll('.carousel-slide img')).map(img => ({ src: img.getAttribute('src'), caption: img.getAttribute('alt') || '' }));
+  let gallerySources = Array.from(document.querySelectorAll('.carousel-slide img')).map(img => ({ src: img.getAttribute('src'), caption: img.getAttribute('alt') || '' }));
   let galleryIndex = 0;
 
   function openGallery(i) {
     galleryIndex = i;
     const item = gallerySources[galleryIndex];
-    galleryImg.src = item.src;
+    galleryImg.src = withAssetVersion(item.src);
     galleryCaption.textContent = item.caption;
     galleryModal.classList.remove('hidden');
   }
@@ -436,7 +436,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* Carousel functionality for the gallery */
   const carouselTrack = document.querySelector('.carousel-track');
-  const carouselSlides = Array.from(carouselTrack.children);
+  let carouselSlides = Array.from(carouselTrack.children);
   const prevCarousel = document.querySelector('.carousel-prev');
   const nextCarousel = document.querySelector('.carousel-next');
   let carouselIndex = 0;
@@ -476,6 +476,42 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCarousel();
       }, 6000);
     });
+
+    fetch(`gallery.json?v=${SITE_ASSET_VERSION}`)
+      .then(response => {
+        if (!response.ok) throw new Error('Gallery manifest unavailable');
+        return response.json();
+      })
+      .then(manifest => {
+        if (!Array.isArray(manifest.images) || !manifest.images.length) {
+          throw new Error('Gallery is empty');
+        }
+
+        gallerySources = manifest.images;
+        carouselIndex = 0;
+        carouselTrack.replaceChildren();
+
+        gallerySources.forEach((item, index) => {
+          const slide = document.createElement('div');
+          const image = document.createElement('img');
+          slide.className = 'carousel-slide';
+          image.src = withAssetVersion(item.src);
+          image.alt = item.caption || 'Gallery image';
+          image.loading = index === 0 ? 'eager' : 'lazy';
+          image.decoding = 'async';
+          image.style.cursor = 'pointer';
+          image.addEventListener('click', () => openGallery(index));
+          slide.appendChild(image);
+          carouselTrack.appendChild(slide);
+        });
+
+        carouselSlides = Array.from(carouselTrack.children);
+        updateCarousel();
+        if (galleryStatus) galleryStatus.hidden = true;
+      })
+      .catch(() => {
+        if (galleryStatus) galleryStatus.textContent = 'Showing the saved gallery images. The latest images will appear shortly.';
+      });
   }
   // Make the history subsections collapsible with a smooth transition.
   // Each <h3> element will be followed by a container (.history-content)

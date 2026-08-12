@@ -1,0 +1,33 @@
+name: Update gallery manifest
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'Gallery/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-manifest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the site
+        uses: actions/checkout@v4
+
+      - name: Build the gallery manifest
+        run: node scripts/generate-gallery-manifest.mjs
+
+      - name: Commit the updated manifest
+        run: |
+          if git diff --quiet -- gallery.json; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add gallery.json
+          git commit -m "Update gallery manifest"
+          git push
