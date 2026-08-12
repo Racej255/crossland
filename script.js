@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     role: 'Chief Chef of the House – Captain of the Fleet',
     hero: 'members/maxwell-hero.png',
     thumbnail: 'members/maxwell.png',
-    location: 'Absent from the House',
+    location: 'Disassociated from the House',
     about: '“Daddy” Maxwell ran the Crossland fleet and kept the crew fed along the way. A gentle giant with a pot in one hand and a ship’s wheel in the other, he was known as the most honest Crossland - though that was a low bar to clear.\nHis stew was legendary, his word was good, and no one left his galley hungry or unhappy.\nHe was once part of the House, but he has now moved on and is remembered as Ex-Crossland.',
     skills: 'Seamanship · Cooking · Leadership · Integrity',
     category: 'missing'
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   joshua: {
     name: 'Joshua Stone',
-    role: 'House Co-Founder – Fallen in Battle',
+    role: 'House Co-Founder – Dead in Battle',
     hero: 'members/joshua-hero.png',
     thumbnail: 'members/joshua.png',
     location: '6 feet under, Graven Rock',
@@ -105,12 +105,12 @@ document.addEventListener('DOMContentLoaded', () => {
   },
 
   sadie: {
-    name: 'Sadie Raine',
+    name: 'Sadie Ashwood',
     role: 'House Magician – Provider of Shortbread',
     hero: 'members/sadie-hero.png',
     thumbnail: 'members/sadie.png',
     location: 'Bel End, Upwold',
-    about: 'Sadie Raine handles the House’s magical business - from charms and potions to the occasional cursebreaker. When she’s not weaving spells, she’s baking shortbread that could probably stop a war.\nQuiet, clever, and always in demand, Sadie keeps Crossland luck on the right side of fortune.',
+    about: 'Sadie Ashwood handles the House’s magical business - from charms and potions to the occasional cursebreaker. When she’s not weaving spells, she’s baking shortbread that could probably stop a war.\nQuiet, clever, and always in demand, Sadie keeps Crossland luck on the right side of fortune.',
     skills: 'Enchantment · Potions · Charmcraft · Baking',
     category: 'active'
   },
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
   agnes: {
     name: 'Agnes',
     role: 'Child Wangler – The mysterious one',
-    hero: 'members/agnes.png',
+    hero: 'members/agnes-hero.png',
     thumbnail: 'members/agnes.png',
     location: 'Bel End, Upwold',
     about: 'Agnes was the Crosslands’ child wrangler, keeping the next generation of troublemakers in line and out of genuinely bad decisions. Rarely seen unless something was misbehaving, she was usually found at the academy, shaping the young and the unruly.\nQuiet by reputation, but impossible to ignore once she had decided the chaos needed sorting.',
@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
   maybel: {
     name: 'Maybel',
     role: 'Bailiff of the Grand Market – Matriarch of Bel End',
-    hero: 'members/Maybel.png',
+    hero: 'members/maybel-hero.png',
     thumbnail: 'members/Maybel.png',
     location: 'Bel End, Upwold',
     about: 'Maybel was the voice that preceded her arrival, and the one everyone listened to before they saw her. As Bailiff of the Grand Market, leader of Crafternoon, and matriarch of Bel End, she kept the House’s trade and community running as smoothly as any good scheme required.\nIf the noise started rising, you could assume Maybel was nearby and already plotting the next improvement to everyone’s lives.',
@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ollie: {
     name: 'Ollie Carpenter',
     role: 'Sergeant of the Levy – Protector of the House',
-    hero: 'members/Ollie.png',
+    hero: 'members/ollie-hero.png',
     thumbnail: 'members/Ollie.png',
     location: 'Crossland Estate, Mitwold',
     about: 'Ollie Carpenter keeps the House safe and the levy in good order, standing as a steady shield for the Crosslands when trouble walks in. He is the sort of protector who makes danger think twice before it starts.\nPractical, dependable and always in the right place at the right moment, Ollie is a valued part of the House.',
@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
     role: 'Potion Master – Conclave Lover',
     hero: 'members/wendy-hero.png',
     thumbnail: 'members/wendy.png',
-    location: 'Bel End, Upwold',
+    location: 'Grey Fens, Bregasland',
     about: 'A rare creature among the Crosslands, Wendy Barfoot can listen to Conclave business and remain both awake and interested. She brews the potions, studies her crafts, and insists that most she is absolutely not dodgy, honest.',
     skills: 'Potions · Crafting · Conclave Business',
     category: 'active'
